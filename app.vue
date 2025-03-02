@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-3xl mx-auto py-16">
+  <div class="max-w-3xl mx-auto py-24">
     <div class="grid grid-cols-6 gap-4">
       <div class="col-span-2 text-white">
         <UserBar />
