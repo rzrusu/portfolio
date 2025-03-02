@@ -6,9 +6,18 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   ssr: true,
+
   vite: {
     plugins: [
       tailwindcss(),
     ],
   },
+
+  fonts: {
+    experimental: {
+      processCSSVariables: true,
+    },
+  },
+
+  modules: ['@nuxt/fonts'],
 })
