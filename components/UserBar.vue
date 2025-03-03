@@ -23,6 +23,10 @@
         </a>
     </div>
   </div>
+  <div class="border rounded-lg border-white/20 p-4 flex items-center justify-between mt-4">
+            <a class="text-sm text-gray-300 font-geist hover:text-white transition-all" href="https://www.behance.net/rzrusu">View my CV</a>
+            <Icon name="uil:arrow-right" class="w-4 h-4" />
+  </div>
 </template>
 
 

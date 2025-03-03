@@ -19,6 +19,11 @@
   "devDependencies": {
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "^1.10.3",
-    "@nuxtjs/google-fonts": "^3.2.0"
+    "@nuxt/image": "^1.9.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/robots": "^5.2.4",
+    "@nuxtjs/sitemap": "^7.2.6",
+    "nuxt-schema-org": "^4.1.3",
+    "nuxt-simple-robots": "^4.0.1"
   }
 }
