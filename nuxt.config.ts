@@ -7,6 +7,16 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   ssr: true,
 
+  hooks: {
+    "vite:extendConfig"(config, { isClient })  {
+      if (isClient) {
+        config.build.rollupOptions.output.manualChunks = function (_id) {
+          return 'index';
+        }
+      }
+    }
+  },
+
   app: {
     head: {
       title: 'Rusu Răzvan - Web Developer & Designer',
