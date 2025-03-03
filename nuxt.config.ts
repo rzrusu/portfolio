@@ -7,16 +7,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   ssr: true,
 
-  hooks: {
-    "vite:extendConfig"(config, { isClient })  {
-      if (isClient) {
-        config.build.rollupOptions.output.manualChunks = function (_id) {
-          return 'index';
-        }
-      }
-    }
-  },
-
   app: {
     head: {
       title: 'Rusu Răzvan - Web Developer & Designer',
@@ -60,8 +50,13 @@ export default defineNuxtConfig({
       minify: true,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor': ['vue', 'vue-router']
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              if (id.includes('vue') || id.includes('vue-router')) {
+                return;
+              }
+              return 'vendor';
+            }
           }
         }
       }
@@ -80,7 +75,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     'nuxt-schema-org',
-    'nuxt-simple-robots',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
 
@@ -105,12 +100,13 @@ export default defineNuxtConfig({
 
   // Robots.txt configuration
   robots: {
-    allow: '/',
+    disallow: [],
+    sitemap: 'https://rusu.me/sitemap.xml',
   },
 
   // Site configuration for SEO
   site: {
-    url: 'https://yourdomain.com',
+    url: 'https://rusu.me',
     name: 'Rusu Răzvan - Portfolio',
     description: 'Web developer and designer portfolio showcasing projects, freelance work, and skills.',
     defaultLocale: 'en',
