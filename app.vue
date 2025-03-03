@@ -17,10 +17,10 @@
         <div class="space-y-4">
           <h1 class="text-2xl font-bold font-instrument">featured freelance work</h1>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <FreelanceProject title="Sparked Host" img="/sparked.png" description="Website Design" link="https://sparkedhost.com" />
-            <FreelanceProject title="EasyMinecraftHosting" img="/emh.png" description="Website Design" link="https://easyminecrafthosting.com" />
-            <FreelanceProject title="Modern Hosting" img="/modern.png" description="Website Design" link="https://modernhosting.com" />
-            <FreelanceProject title="Data Wagon" img="/datawagon.png" description="Website Design" link="https://datawagon.com" />
+            <FreelanceProject title="Sparked Host" img="/sparked.webp" description="Website Design" link="https://sparkedhost.com" />
+            <FreelanceProject title="EasyMinecraftHosting" img="/emh.webp" description="Website Design" link="https://easyminecrafthosting.com" />
+            <FreelanceProject title="Modern Hosting" img="/modern.webp" description="Website Design" link="https://modernhosting.com" />
+            <FreelanceProject title="Data Wagon" img="/datawagon.webp" description="Website Design" link="https://datawagon.com" />
           </div>
           <div class="border rounded-lg border-white/20 p-4 flex items-center justify-between">
             <a class="text-sm text-gray-300 font-geist hover:text-white transition-all" href="https://www.behance.net/rzrusu">View all my work on Behance</a>
