@@ -9,9 +9,9 @@
           <h1 class="text-2xl font-bold font-instrument">featured projects</h1>
           <div class="border border-white/20 rounded-lg w-full">
             <Project title="My Football Career" img="/logos/mfc-logo.png" description="Mobile football career simulation game, in development" :isLast="false" :links="[{ icon: 'uil:link', url: 'https://footballcareer.app' }]" />
-            <Project title="updateharbor.com" img="/logos/uh-logo.png" description="Open-source static release notes" :isLast="false" :links="[{ icon: 'uil:github', url: 'https://github.com/updateharbor/updateharbor' }]" />
-            <Project title="swiftlogs.io" img="/logos/sl-logo.png" description="Generate release notes from GitHub commit history" :isLast="false" :links="[{ icon: 'uil:link', url: 'https://swiftlogs.io' }]" />
-            <Project title="myspecs.io" img="/logos/ms-logo.png" description="Your computer's social media profile" :isLast="true" :links="[{ icon: 'uil:link', url: 'https://myspecs.io' }]" />
+            <!-- <Project title="updateharbor.com" img="/logos/uh-logo.png" description="Open-source static release notes" :isLast="false" :links="[{ icon: 'uil:github', url: 'https://github.com/updateharbor/updateharbor' }]" /> -->
+            <Project title="gitreleasenotes.io" img="/logos/grn-logo.png" description="Generate release notes from GitHub commit history" :isLast="false" :links="[{ icon: 'uil:link', url: 'https://gitreleasenotes.com' }]" />
+            <!-- <Project title="myspecs.io" img="/logos/ms-logo.png" description="Your computer's social media profile" :isLast="true" :links="[{ icon: 'uil:link', url: 'https://myspecs.io' }]" /> -->
           </div>
         </div>
         <div class="space-y-4">
