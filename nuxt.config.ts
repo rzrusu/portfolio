@@ -45,6 +45,11 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        'shiki/engine/oniguruma': '@shikijs/engine-oniguruma'
+      }
+    },
     build: {
       cssMinify: true,
       minify: true,
@@ -77,7 +82,15 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    '@nuxt/content',
   ],
+
+  content: {
+    documentDriven: false,
+    highlight: {
+      theme: 'github-dark',
+    },
+  },
 
   // Module configurations
   image: {
@@ -114,6 +127,9 @@ export default defineNuxtConfig({
 
   // Nitro server configuration for better performance
   nitro: {
+    alias: {
+      'shiki/engine/oniguruma': '@shikijs/engine-oniguruma'
+    },
     compressPublicAssets: true,
     minify: true,
     prerender: {
