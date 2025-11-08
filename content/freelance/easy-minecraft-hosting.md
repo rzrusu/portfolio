@@ -1,5 +1,6 @@
 ---
 title: "EasyMinecraftHosting"
+category: "freelance project"
 year: "2023"
 services:
   - "Website Design"

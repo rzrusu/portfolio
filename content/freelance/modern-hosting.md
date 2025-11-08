@@ -1,5 +1,6 @@
 ---
 title: "Modern Hosting"
+category: "freelance project"
 year: "2022"
 services:
   - "UX Strategy"

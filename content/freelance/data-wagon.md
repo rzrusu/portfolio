@@ -1,5 +1,6 @@
 ---
 title: "Data Wagon"
+category: "freelance project"
 year: "2021"
 services:
   - "Product Design"
