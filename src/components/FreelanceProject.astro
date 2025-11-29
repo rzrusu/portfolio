@@ -7,15 +7,17 @@ interface Props {
 	img: ImageMetadata | string;
 	description: string;
 	link: string;
+	slug?: string;
 	loading?: 'lazy' | 'eager';
 }
 
-const { title, img, description, link, loading = 'lazy' } = Astro.props;
+const { title, img, description, link, slug, loading = 'lazy' } = Astro.props;
 const isRemote = typeof img === 'string';
+const projectUrl = slug ? `/projects/${slug}` : link;
 ---
 
 <div class="border border-white/20 rounded-lg">
-	<a href={link} target="_blank">
+	<a href={projectUrl}>
 		{isRemote ? (
 			<Image src={img as string} alt={title} width={400} height={144} class="h-36 w-full object-cover rounded-t-lg" loading={loading} />
 		) : (
@@ -23,7 +25,7 @@ const isRemote = typeof img === 'string';
 		)}
 	</a>
 	<div class="p-4">
-		<a href={link} target="_blank" class="text-lg font-bold text-gray-100 hover:text-white transition-all">{title}</a>
+		<a href={projectUrl} class="text-lg font-bold text-gray-100 hover:text-white transition-all">{title}</a>
 		<p class="text-sm text-gray-300">{description}</p>
 	</div>
 </div>
