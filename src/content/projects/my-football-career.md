@@ -33,3 +33,4 @@ My Football Career is a mobile football career simulation game currently in deve
 
 The game is currently in active development with a planned release in 2025.
 
+
