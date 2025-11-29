@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Link {
 	url: string;
 	icon: string;
@@ -6,27 +9,32 @@ interface Link {
 
 interface Props {
 	title: string;
-	img: string;
+	img: ImageMetadata | string;
 	description: string;
 	isLast?: boolean;
 	links?: Link[];
+	loading?: 'lazy' | 'eager';
 }
 
-const { title, img, description, isLast = false, links = [] } = Astro.props;
+const { title, img, description, isLast = false, links = [], loading = 'lazy' } = Astro.props;
+const isRemote = typeof img === 'string';
 ---
 
 <div class="flex flex-row space-x-4 pl-4 pt-4 h-fit">
-	<img src={img} alt="project image" class="w-12 h-12 object-cover rounded-lg">
+	{isRemote ? (
+		<Image src={img as string} alt="Project Logo" width={48} height={48} class="w-12 h-12 object-cover rounded-lg" loading={loading} />
+	) : (
+		<Image src={img as ImageMetadata} alt="Project Logo" width={48} height={48} class="w-12 h-12 object-cover rounded-lg" loading={loading} />
+	)}
 	<div class:list={["w-full h-fit pb-4", { "border-b border-white/20": !isLast }]}>
 		<div class="flex flex-row items-center space-x-2">
 			<a href={links[0]?.url} class="text-lg font-bold text-white hover:text-gray-200 transition-colors">{title}</a>
 			{links.map((link) => (
 				<a href={link.url} class="text-sm text-gray-300 hover:text-white transition-colors">
-					<img src={link.icon} alt="link icon" class="w-4 h-4" />
+					<img src={link.icon} alt="link icon" class="w-4 h-4" loading={loading} />
 				</a>
 			))}
 		</div>
 		<p class="text-sm text-gray-300">{description}</p>
 	</div>
 </div>
-

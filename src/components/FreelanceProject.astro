@@ -1,21 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
 	title: string;
-	img: string;
+	img: ImageMetadata | string;
 	description: string;
 	link: string;
+	loading?: 'lazy' | 'eager';
 }
 
-const { title, img, description, link } = Astro.props;
+const { title, img, description, link, loading = 'lazy' } = Astro.props;
+const isRemote = typeof img === 'string';
 ---
 
 <div class="border border-white/20 rounded-lg">
 	<a href={link} target="_blank">
-		<img src={img} alt={title} class="h-36 w-full object-cover rounded-t-lg">
+		{isRemote ? (
+			<Image src={img as string} alt={title} width={400} height={144} class="h-36 w-full object-cover rounded-t-lg" loading={loading} />
+		) : (
+			<Image src={img as ImageMetadata} alt={title} width={400} height={144} class="h-36 w-full object-cover rounded-t-lg" loading={loading} />
+		)}
 	</a>
 	<div class="p-4">
 		<a href={link} target="_blank" class="text-lg font-bold text-gray-100 hover:text-white transition-all">{title}</a>
 		<p class="text-sm text-gray-300">{description}</p>
 	</div>
 </div>
-
