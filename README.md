@@ -1,75 +1,62 @@
-# Nuxt Minimal Starter
+# Astro Starter Kit: Blog
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```sh
+npm create astro@latest -- --template blog
 ```
 
-## Development Server
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-Start the development server on `http://localhost:3000`:
+Features:
 
-```bash
-# npm
-npm run dev
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-# pnpm
-pnpm dev
+## 🚀 Project Structure
 
-# yarn
-yarn dev
+Inside of your Astro project, you'll see the following folders and files:
 
-# bun
-bun run dev
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-## Production
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-Build the application for production:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-```bash
-# npm
-npm run build
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-# pnpm
-pnpm build
+Any static assets, like images, can be placed in the `public/` directory.
 
-# yarn
-yarn build
+## 🧞 Commands
 
-# bun
-bun run build
-```
+All commands are run from the root of the project, from a terminal:
 
-Locally preview production build:
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-```bash
-# npm
-npm run preview
+## 👀 Want to learn more?
 
-# pnpm
-pnpm preview
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-# yarn
-yarn preview
+## Credit
 
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
