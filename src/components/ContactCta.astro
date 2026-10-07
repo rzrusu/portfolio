@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import { profile } from "../data/site";
+---
+
+<section class="border border-white/20 rounded-lg p-6 md:p-8 space-y-6 bg-white/[0.02]">
+  <div class="space-y-2">
+    <h2 class="text-2xl md:text-3xl font-bold font-instrument">Have a project in mind?</h2>
+    <p class="text-gray-300 font-geist">I'm open to freelance website and interface design work. Tell me what you're building.</p>
+  </div>
+  <div class="flex flex-col sm:flex-row gap-3">
+    <a
+      href={`mailto:${profile.email}`}
+      class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm text-gray-950 font-geist hover:bg-gray-200 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      <Icon name="uil:envelope" class="w-4 h-4" />
+      {profile.email}
+    </a>
+    <button
+      type="button"
+      data-copy={profile.discord}
+      aria-label={`Copy Discord username ${profile.discord}`}
+      class="group inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-4 py-2.5 text-sm text-gray-300 font-geist hover:text-white hover:border-indigo-500 hover:bg-indigo-500/10 transition-all cursor-pointer"
+    >
+      <Icon name="uil:discord" class="w-4 h-4 text-indigo-400" />
+      <span data-copy-label>@{profile.discord}</span>
+      <Icon name="uil:copy" class="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+    </button>
+  </div>
+</section>
+
+<script>
+  // Discord has no profile links, so the button copies the username instead
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
+    const label = button.querySelector<HTMLElement>("[data-copy-label]");
+    if (!label) continue;
+    const original = label.textContent;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy!);
+        label.textContent = "copied!";
+      } catch {
+        label.textContent = button.dataset.copy!;
+      }
+      setTimeout(() => (label.textContent = original), 1500);
+    });
+  }
+</script>

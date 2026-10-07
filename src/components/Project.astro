@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { Project } from "../data/site";
+
+interface Props extends Project {
+  isLast?: boolean;
+}
+
+const { title, img, description, links, isLast = false } = Astro.props;
+const [primary, ...extra] = links;
+const isGitHub = primary?.icon === "uil:github";
+---
+
+<!-- The whole row links to the main URL; any extra links sit on top of it -->
+<div class="group relative flex items-center gap-4 p-4 transition-colors hover:bg-white/5 has-[a:focus-visible]:bg-white/10">
+  <Image src={img} alt="" width={48} height={48} densities={[1, 2]} class="w-12 h-12 object-cover rounded-lg shrink-0" />
+  <div class="flex-1 min-w-0">
+    <a
+      href={primary?.url}
+      class="text-lg font-bold font-instrument text-gray-100 group-hover:text-white transition-colors focus-visible:outline-none after:absolute after:inset-0"
+    >
+      {title}
+    </a>
+    <p class="text-sm text-gray-300 font-geist">{description}</p>
+  </div>
+  {
+    extra.map((link) => (
+      <a href={link.url} aria-label={`${title} link`} class="relative z-10 p-2 text-gray-400 hover:text-white transition-colors">
+        <Icon name={link.icon} class="w-4 h-4" />
+      </a>
+    ))
+  }
+  <span class="flex items-center gap-1.5 shrink-0 text-sm text-gray-400 font-geist transition-colors group-hover:text-white">
+    <span class="max-sm:hidden opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+      {isGitHub ? "view on GitHub" : "visit site"}
+    </span>
+    <Icon name={isGitHub ? "uil:github" : "uil:external-link-alt"} class="w-4 h-4" />
+  </span>
+  {!isLast && <span class="absolute bottom-0 left-20 right-4 h-px bg-white/20" aria-hidden="true" />}
+</div>

@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import avatar from "../assets/avatar.png";
+import { profile } from "../data/site";
+
+const socials = [
+  { icon: "uil:behance", label: "Behance", href: profile.behance },
+  { icon: "uil:linkedin", label: "LinkedIn", href: profile.linkedin },
+];
+---
+
+<header class="text-white space-y-8 pb-4">
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <Image
+        src={avatar}
+        alt=""
+        width={48}
+        height={48}
+        densities={[1, 2]}
+        loading="eager"
+        class="w-12 h-12 rounded-full shrink-0"
+      />
+      <div class="min-w-0">
+        <h1 class="text-lg font-bold font-instrument leading-tight">{profile.name}</h1>
+        <p class="text-sm text-gray-300 font-geist">{profile.role}</p>
+      </div>
+    </div>
+
+    {
+      profile.availability && (
+        <p class="flex items-center gap-2 shrink-0 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs text-green-300 font-geist">
+          <span class="relative flex w-2 h-2">
+            <span class="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping motion-reduce:animate-none" />
+            <span class="relative w-2 h-2 rounded-full bg-green-400" />
+          </span>
+          {profile.availability}
+        </p>
+      )
+    }
+  </div>
+
+  <p class="text-3xl md:text-[2.75rem] md:leading-[1.15] font-semibold font-instrument tracking-tight text-gray-400 text-balance">
+    {profile.pitch.lead} <span class="text-white">{profile.pitch.highlight}.</span>
+  </p>
+
+  <div class="flex flex-wrap items-center gap-3">
+    <a
+      href={`mailto:${profile.email}`}
+      class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm text-gray-950 font-geist hover:bg-gray-200 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      <Icon name="uil:envelope" class="w-4 h-4" />
+      Get in touch
+    </a>
+    <nav aria-label="Social links" class="flex items-center gap-1">
+      {
+        socials.map((s) => (
+          <a
+            href={s.href}
+            aria-label={s.label}
+            class="w-10 h-10 flex items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <Icon name={s.icon} class="w-5 h-5" />
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

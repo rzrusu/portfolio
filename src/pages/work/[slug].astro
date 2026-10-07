@@ -1,0 +1,227 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
+import { profile } from "../../data/site";
+
+export const getStaticPaths = (async () => {
+  const work = (await getCollection("work", ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+  return work.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, next: work[(i + 1) % work.length] },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry, next } = Astro.props;
+const { title, category, summary, cover, coverAlt, client, role, year, services, website } = entry.data;
+const { Content } = await render(entry);
+
+const meta = [
+  { label: "Client", value: client },
+  { label: "Role", value: role },
+  { label: "Year", value: year },
+  { label: "Services", value: services.join(", ") },
+];
+
+const coverProps = {
+  src: cover,
+  widths: [768, 1280, 1920, cover.width],
+  sizes: "(min-width: 1024px) 1060px, (min-width: 768px) 736px, 100vw",
+  loading: "eager",
+} as const;
+---
+
+<BaseLayout title={`${title} Case Study | ${profile.name}`} description={summary}>
+  <!--
+    Desktop: a sticky stage on the left that takes the width the text column
+    doesn't need (within a centred max width), and the story on the right. The stage swaps images as each ##
+    section scrolls past. An image written inside a section in the Markdown
+    becomes that section's image. On mobile, images stay inline.
+  -->
+  <div
+    data-scrolly
+    class="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,36rem)] lg:gap-x-16 lg:max-w-[114rem] lg:mx-auto lg:px-[clamp(2rem,4vw,4rem)]"
+  >
+    <aside class="hidden lg:block" aria-hidden="true">
+      <div data-stage data-dir="down" class="sticky top-0 h-svh py-[clamp(3rem,12vh,8rem)]">
+        <div data-slides class="stage-area h-full">
+          <figure class="stage-slide" data-active style={`--ratio: ${cover.width / cover.height}`}>
+            <div class="stage-frame">
+              <Image {...coverProps} alt="" class="stage-glow" />
+              <Image {...coverProps} alt="" class="stage-img" />
+            </div>
+            <figcaption class="stage-caption">{coverAlt}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </aside>
+
+    <div class="max-w-3xl mx-auto lg:mx-0 lg:max-w-none py-16 md:py-24 lg:pb-[35vh] px-4 lg:px-0 space-y-12 text-white">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-gray-300 font-geist hover:text-white transition-all">
+        <Icon name="uil:arrow-left" class="w-4 h-4" />
+        back to home
+      </a>
+
+      <header class="space-y-4">
+        <p class="text-sm text-gray-400 font-geist">{category}</p>
+        <h1 class="text-4xl md:text-5xl font-bold font-instrument">{title}</h1>
+        <p class="text-lg text-gray-300 font-geist">{summary}</p>
+      </header>
+
+      <div class="border border-white/20 rounded-lg">
+        <dl class="grid grid-cols-2">
+          {
+            meta.map((m, i) => (
+              <div class:list={["p-4 space-y-1 border-white/20", { "border-r": i % 2 === 0, "border-b": i < 2 }]}>
+                <dt class="text-xs text-gray-400 font-geist">{m.label}</dt>
+                <dd class="text-sm font-instrument">{m.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        {
+          website && (
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener"
+              class="border-t border-white/20 p-4 flex items-center justify-between text-sm text-gray-300 font-geist hover:text-white hover:bg-white/10 transition-all rounded-b-lg"
+            >
+              Visit the live site
+              <Icon name="uil:external-link-alt" class="w-4 h-4" />
+            </a>
+          )
+        }
+      </div>
+
+      <Image {...coverProps} alt={coverAlt} class="lg:hidden w-full rounded-lg border border-white/20" />
+
+      <article class="case-study">
+        <Content />
+      </article>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto pb-16 md:pb-24 px-4 space-y-12 text-white">
+    {
+      next && next.id !== entry.id && (
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-instrument">next case study</h2>
+          <a
+            href={`/work/${next.id}/`}
+            class="border border-white/20 rounded-lg flex items-center gap-4 p-4 hover:bg-white/10 transition-all"
+          >
+            <Image src={next.data.cover} alt="" width={160} height={96} densities={[1, 2]} class="w-24 h-14 sm:w-32 sm:h-20 object-cover object-top rounded shrink-0" />
+            <span class="flex-1 min-w-0">
+              <span class="block text-lg font-bold font-instrument">{next.data.title}</span>
+              <span class="block text-sm text-gray-300 font-geist">{next.data.category}</span>
+            </span>
+            <Icon name="uil:arrow-right" class="w-4 h-4 shrink-0" />
+          </a>
+        </section>
+      )
+    }
+
+    <Footer />
+  </div>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-scrolly]");
+  const article = root?.querySelector<HTMLElement>(".case-study");
+  const stage = root?.querySelector<HTMLElement>("[data-stage]");
+  const slides = root?.querySelector<HTMLElement>("[data-slides]");
+
+  if (root && article && stage && slides) {
+    const cover = slides.firstElementChild as HTMLElement;
+
+    type Step = { heading: HTMLElement; blocks: HTMLElement[]; slide?: HTMLElement };
+    const steps: Step[] = [];
+
+    // A slide is the image, a blurred copy of it glowing behind, and its alt text as the caption.
+    const makeSlide = (img: HTMLImageElement) => {
+      const slide = document.createElement("figure");
+      slide.className = "stage-slide";
+      const frame = document.createElement("div");
+      frame.className = "stage-frame";
+      const w = Number(img.getAttribute("width")) || img.naturalWidth;
+      const h = Number(img.getAttribute("height")) || img.naturalHeight;
+      if (w && h) slide.style.setProperty("--ratio", String(w / h));
+      for (const cls of ["stage-glow", "stage-img"]) {
+        const copy = img.cloneNode() as HTMLImageElement;
+        copy.alt = "";
+        copy.className = cls;
+        frame.append(copy);
+      }
+      const caption = document.createElement("figcaption");
+      caption.className = "stage-caption";
+      caption.textContent = img.alt;
+      slide.append(frame, caption);
+      slides.append(slide);
+      return slide;
+    };
+
+    // Split the rendered Markdown into one step per ## heading, and give each
+    // section's first image its own slide on the stage.
+    for (const el of Array.from(article.children) as HTMLElement[]) {
+      if (el.tagName === "H2" || steps.length === 0) steps.push({ heading: el, blocks: [] });
+      const step = steps[steps.length - 1];
+      step.blocks.push(el);
+
+      const img = el instanceof HTMLImageElement ? el : el.querySelector("img");
+      if (!img || el.textContent?.trim()) continue;
+      el.classList.add("case-media");
+      if (step.slide) continue;
+      step.slide = makeSlide(img);
+    }
+
+    // Sections without their own image keep showing the previous one.
+    let slide = cover;
+    for (const step of steps) slide = step.slide ??= slide;
+
+    const allSlides = Array.from(slides.children) as HTMLElement[];
+    root.dataset.ready = "";
+
+    let active: Step | undefined;
+    let shown = cover;
+    let queued = false;
+
+    const update = () => {
+      queued = false;
+      // The active section is the last one whose heading has crossed 40% of the viewport.
+      const line = window.innerHeight * 0.4;
+      let current: Step | undefined;
+      for (const step of steps) {
+        if (step.heading.getBoundingClientRect().top <= line) current = step;
+      }
+      if (current === active) return;
+      const forward = steps.indexOf(current!) > steps.indexOf(active!);
+      active = current;
+
+      const target = current?.slide ?? cover;
+      if (target !== shown) {
+        stage.dataset.dir = forward ? "down" : "up";
+        for (const s of allSlides) {
+          s.toggleAttribute("data-active", s === target);
+          s.toggleAttribute("data-leaving", s === shown);
+        }
+        shown = target;
+      }
+
+      for (const step of steps) {
+        for (const block of step.blocks) block.toggleAttribute("data-dim", !!current && step !== current);
+      }
+    };
+
+    const queue = () => {
+      if (!queued) requestAnimationFrame(update);
+      queued = true;
+    };
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    update();
+  }
+</script>

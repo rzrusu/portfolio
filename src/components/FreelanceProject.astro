@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+}
+
+const { entry } = Astro.props;
+const { title, category, cover } = entry.data;
+const href = `/work/${entry.id}/`;
+---
+
+<a
+  href={href}
+  class="group block border border-white/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-white/40 hover:bg-white/5 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgb(0_0_0/0.8)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:hover:translate-y-0"
+>
+  <div class="overflow-hidden border-b border-white/10">
+    <Image
+      src={cover}
+      alt=""
+      widths={[400, cover.width]}
+      sizes="(min-width: 768px) 376px, (min-width: 640px) 50vw, 100vw"
+      class="w-full aspect-[5/3] object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
+    />
+  </div>
+  <div class="p-4 flex items-center justify-between gap-4">
+    <div class="min-w-0">
+      <h3 class="text-lg font-bold font-instrument text-gray-100 group-hover:text-white transition-colors">{title}</h3>
+      <p class="text-sm text-gray-300 font-geist">{category}</p>
+    </div>
+    <span
+      class="flex items-center gap-1.5 shrink-0 text-sm text-gray-400 font-geist transition-all duration-300 group-hover:text-white group-focus-visible:text-white"
+    >
+      <span class="max-sm:hidden opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0">
+        view case study
+      </span>
+      <Icon name="uil:arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+    </span>
+  </div>
+</a>
