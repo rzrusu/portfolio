@@ -1,0 +1,31 @@
+---
+// GitHub Pages serves this one page for every missing URL, so it speaks both languages.
+import { Icon } from "astro-icon/components";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/site";
+import { localizePath, t } from "../i18n";
+
+const en = t("en");
+const ro = t("ro");
+---
+
+<BaseLayout lang="en" title={`${en.notFoundTitle} | ${profile.name}`} description={en.notFoundBody} noindex>
+  <main class="max-w-3xl mx-auto min-h-svh px-4 py-16 flex flex-col justify-center gap-8 text-white">
+    <div class="space-y-4">
+      <p class="text-sm text-gray-400 font-geist">404</p>
+      <h1 class="text-4xl md:text-5xl font-bold font-instrument">{en.notFoundTitle}</h1>
+      <p class="text-lg text-gray-300 font-geist">{en.notFoundBody}</p>
+      <p lang={ro.htmlLang} class="text-gray-400 font-geist">{ro.notFoundTitle}. {ro.notFoundBody}</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-geist">
+      <a href={localizePath("/", "en")} class="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+        <Icon name="uil:arrow-left" class="w-4 h-4" />
+        {en.backHome}
+      </a>
+      <a href={localizePath("/", "ro")} lang={ro.htmlLang} class="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+        <Icon name="uil:arrow-left" class="w-4 h-4" />
+        {ro.backHome}
+      </a>
+    </nav>
+  </main>
+</BaseLayout>

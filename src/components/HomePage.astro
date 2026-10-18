@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "./Hero.astro";
+import Project from "./Project.astro";
+import FreelanceProject from "./FreelanceProject.astro";
+import ContactCta from "./ContactCta.astro";
+import Footer from "./Footer.astro";
+import { projects, profile } from "../data/site";
+import { localizePath, t, type Lang } from "../i18n";
+import { getWork } from "../lib/work";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const text = t(lang);
+const work = await getWork(lang);
+const alternates = { en: localizePath("/", "en"), ro: localizePath("/", "ro") };
+---
+
+<BaseLayout lang={lang} alternates={alternates}>
+  <div class="max-w-3xl mx-auto py-16 md:py-24 px-4 space-y-12">
+    <Hero lang={lang} alternates={alternates} />
+    <main class="text-white space-y-8">
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold font-instrument">{text.featuredWork}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {work.map((entry) => <FreelanceProject entry={entry} lang={lang} />)}
+        </div>
+        <a
+          href={profile.behance}
+          class="border rounded-lg border-white/20 p-4 flex items-center justify-between text-sm text-gray-300 font-geist hover:text-white transition-all"
+        >
+          {text.behanceLink}
+          <Icon name="uil:arrow-right" class="w-4 h-4" />
+        </a>
+      </section>
+
+      <section class="space-y-4">
+        <div class="space-y-1">
+          <h2 class="text-2xl font-bold font-instrument">{text.sideProjects}</h2>
+          <p class="text-sm text-gray-400 font-geist">{text.sideProjectsIntro}</p>
+        </div>
+        <div class="border border-white/20 rounded-lg w-full overflow-hidden">
+          {projects.map((p, i) => <Project {...p} lang={lang} isLast={i === projects.length - 1} />)}
+        </div>
+      </section>
+
+      <ContactCta lang={lang} />
+
+      <Footer lang={lang} />
+    </main>
+  </div>
+</BaseLayout>
+

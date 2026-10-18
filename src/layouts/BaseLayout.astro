@@ -1,0 +1,131 @@
+---
+import "../styles/global.css";
+import "@fontsource-variable/instrument-sans";
+import "@fontsource/geist-sans/400.css";
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
+import bg from "../assets/backgrounds/bg.png";
+import bg2x from "../assets/backgrounds/bg@2x.png";
+import avatar from "../assets/avatar.png";
+import ogEn from "../assets/og/og-en.png";
+import ogRo from "../assets/og/og-ro.png";
+import { profile } from "../data/site";
+import { languages, localizePath, t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  // This page's path in every language, for hreflang links. Leave out on pages that aren't indexed.
+  alternates?: Record<Lang, string>;
+  title?: string;
+  description?: string;
+  // Social preview image; defaults to the site card for the page's language
+  image?: ImageMetadata;
+  imageAlt?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+}
+
+// Social cards rendered from the homepage design (1200x630)
+const siteCards: Record<Lang, ImageMetadata> = { en: ogEn, ro: ogRo };
+
+const { lang, alternates, type = "website", noindex = false } = Astro.props;
+const text = t(lang);
+const {
+  title = text.title,
+  description = text.description,
+  image = siteCards[lang],
+  imageAlt = `${profile.name} - ${text.role}`,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const [bg1xImg, bg2xImg, avatarImg, ogImg] = await Promise.all([
+  getImage({ src: bg, format: "webp" }),
+  getImage({ src: bg2x, format: "webp" }),
+  getImage({ src: avatar, format: "png" }),
+  // PNG keeps the site cards' text sharp; screenshots are much smaller as JPEG
+  getImage({ src: image, width: Math.min(image.width, 1200), format: image.format === "png" ? "png" : "jpg" }),
+]);
+const bgStyle = `--bg-1x: url(${bg1xImg.src}); --bg-2x: url(${bg2xImg.src});`;
+const otherLangs = (Object.keys(languages) as Lang[]).filter((l) => l !== lang);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: profile.name,
+      url: Astro.site?.href,
+      jobTitle: text.role,
+      image: new URL(avatarImg.src, Astro.site).href,
+      sameAs: [profile.github, profile.behance, profile.linkedin],
+    },
+    {
+      "@type": "WebSite",
+      name: `${profile.name} - ${text.portfolio}`,
+      url: new URL(localizePath("/", lang), Astro.site).href,
+      inLanguage: text.htmlLang,
+    },
+  ],
+};
+---
+
+<html lang={text.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#07090E" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {
+      !noindex &&
+        alternates && [
+          ...(Object.keys(languages) as Lang[]).map((l) => (
+            <link rel="alternate" hreflang={t(l).htmlLang} href={new URL(alternates[l], Astro.site)} />
+          )),
+          <link rel="alternate" hreflang="x-default" href={new URL(alternates.en, Astro.site)} />,
+        ]
+    }
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:locale" content={text.locale} />
+    {otherLangs.map((l) => <meta property="og:locale:alternate" content={t(l).locale} />)}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImg.src, Astro.site)} />
+    <meta property="og:image:width" content={String(ogImg.attributes.width)} />
+    <meta property="og:image:height" content={String(ogImg.attributes.height)} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImg.src, Astro.site)} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body style={bgStyle}>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #07090e;
+    background-image: var(--bg-1x);
+    background-image: image-set(var(--bg-1x) 1x, var(--bg-2x) 2x);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: contain;
+    margin: 0;
+    overflow-x: hidden;
+  }
+</style>

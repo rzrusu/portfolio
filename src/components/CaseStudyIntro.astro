@@ -1,0 +1,66 @@
+---
+// Top of every case study: back link, language toggle, title and project details.
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import LangToggle from "./LangToggle.astro";
+import { localizePath, t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<"work">;
+  alternates: Record<Lang, string>;
+}
+
+const { lang, entry, alternates } = Astro.props;
+const text = t(lang);
+const { title, category, summary, client, role, year, services, website } = entry.data;
+
+const onBehance = website ? new URL(website).hostname.endsWith("behance.net") : false;
+
+const meta = [
+  { label: text.client, value: client },
+  { label: text.roleLabel, value: role },
+  { label: text.year, value: year },
+  { label: text.services, value: services.join(", ") },
+];
+---
+
+<div class="flex items-center justify-between gap-4">
+  <a href={localizePath("/", lang)} class="inline-flex items-center gap-2 text-sm text-gray-300 font-geist hover:text-white transition-all">
+    <Icon name="uil:arrow-left" class="w-4 h-4" />
+    {text.backHome}
+  </a>
+  <LangToggle lang={lang} alternates={alternates} />
+</div>
+
+<header class="space-y-4">
+  <p class="text-sm text-gray-400 font-geist">{category}</p>
+  <h1 class="text-4xl md:text-5xl font-bold font-instrument">{title}</h1>
+  <p class="text-lg text-gray-300 font-geist">{summary}</p>
+</header>
+
+<div class="border border-white/20 rounded-lg">
+  <dl class="grid grid-cols-2">
+    {
+      meta.map((m, i) => (
+        <div class:list={["p-4 space-y-1 border-white/20", { "border-r": i % 2 === 0, "border-b": i < 2 }]}>
+          <dt class="text-xs text-gray-400 font-geist">{m.label}</dt>
+          <dd class="text-sm font-instrument">{m.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+  {
+    website && (
+      <a
+        href={website}
+        target="_blank"
+        rel="noopener"
+        class="border-t border-white/20 p-4 flex items-center justify-between text-sm text-gray-300 font-geist hover:text-white hover:bg-white/10 transition-all rounded-b-lg"
+      >
+        {onBehance ? text.viewOnBehance : text.visitLive}
+        <Icon name="uil:external-link-alt" class="w-4 h-4" />
+      </a>
+    )
+  }
+</div>

@@ -1,0 +1,30 @@
+---
+import { languages, t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  // The current page's path in each language
+  alternates: Record<Lang, string>;
+}
+
+const { lang, alternates } = Astro.props;
+---
+
+<nav aria-label={t(lang).language} class="flex shrink-0 rounded-lg border border-white/20 p-0.5 text-xs font-geist">
+  {
+    (Object.keys(languages) as Lang[]).map((l) => (
+      <a
+        href={alternates[l]}
+        hreflang={t(l).htmlLang}
+        lang={t(l).htmlLang}
+        aria-current={l === lang ? "page" : undefined}
+        class:list={[
+          "rounded-md px-2.5 py-1 transition-colors",
+          l === lang ? "bg-white/15 text-white" : "text-gray-400 hover:text-white hover:bg-white/5",
+        ]}
+      >
+        {languages[l]}
+      </a>
+    ))
+  }
+</nav>

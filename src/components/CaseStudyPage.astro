@@ -1,0 +1,255 @@
+---
+import { Image } from "astro:assets";
+import { render, type CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "./Footer.astro";
+import CaseStudyIntro from "./CaseStudyIntro.astro";
+import { profile } from "../data/site";
+import { localizePath, t, type Lang } from "../i18n";
+import { slugOf } from "../lib/work";
+
+interface Props {
+  lang: Lang;
+  entry: CollectionEntry<"work">;
+  next: CollectionEntry<"work">;
+}
+
+const { lang, entry, next } = Astro.props;
+const text = t(lang);
+const { title, summary, cover, coverAlt, gallery } = entry.data;
+const { Content } = await render(entry);
+
+const path = `/work/${slugOf(entry)}/`;
+const alternates = { en: localizePath(path, "en"), ro: localizePath(path, "ro") };
+
+const coverProps = {
+  src: cover,
+  widths: [768, 1280, 1920, cover.width],
+  sizes: "(min-width: 1024px) 1060px, (min-width: 768px) 736px, 100vw",
+  loading: "eager" as const,
+};
+---
+
+<BaseLayout
+  lang={lang}
+  alternates={alternates}
+  title={`${text.caseStudyTitle.replace("{title}", title)} | ${profile.name}`}
+  description={summary}
+  image={cover}
+  imageAlt={coverAlt}
+  type="article"
+>
+  <!-- Gallery: screenshots stacked under the intro, for projects without a written case study -->
+  {
+    gallery ? (
+      <main class="max-w-6xl mx-auto py-16 md:py-24 px-4 space-y-12 text-white">
+        <div class="max-w-3xl space-y-12">
+          <CaseStudyIntro lang={lang} entry={entry} alternates={alternates} />
+        </div>
+        <div class="space-y-12">
+          {gallery.map((shot, i) => (
+            <figure class="space-y-3">
+              <Image
+                src={shot.image}
+                alt={shot.caption}
+                widths={[768, 1280, shot.image.width]}
+                sizes="(min-width: 1152px) 1120px, 100vw"
+                loading={i === 0 ? "eager" : "lazy"}
+                class="w-full rounded-lg border border-white/20"
+              />
+              <figcaption class="text-sm text-gray-400 font-geist">{shot.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </main>
+    ) : (
+      <Fragment>
+        <!--
+          Desktop: a sticky stage on the left that takes the width the text column
+          doesn't need (within a centred max width), and the story on the right. The stage swaps images as each ##
+          section scrolls past. An image written inside a section in the Markdown
+          becomes that section's image. On mobile, images stay inline.
+        -->
+        <div
+          data-scrolly
+          class="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,36rem)] lg:gap-x-16 lg:max-w-[114rem] lg:mx-auto lg:px-[clamp(2rem,4vw,4rem)]"
+        >
+          <aside class="hidden lg:block" aria-hidden="true">
+            <div data-stage data-dir="down" class="sticky top-0 h-svh py-[clamp(3rem,12vh,8rem)]">
+              <div data-slides class="stage-area h-full">
+                <figure class="stage-slide" data-active style={`--ratio: ${cover.width / cover.height}`}>
+                  <div class="stage-frame">
+                    <Image {...coverProps} alt="" class="stage-glow" />
+                    <Image {...coverProps} alt="" class="stage-img" />
+                  </div>
+                  <figcaption class="stage-caption">{coverAlt}</figcaption>
+                </figure>
+              </div>
+            </div>
+          </aside>
+
+          <main class="max-w-3xl mx-auto lg:mx-0 lg:max-w-none py-16 md:py-24 lg:pb-[35vh] px-4 lg:px-0 space-y-12 text-white">
+            <CaseStudyIntro lang={lang} entry={entry} alternates={alternates} />
+
+            <Image {...coverProps} alt={coverAlt} class="lg:hidden w-full rounded-lg border border-white/20" />
+
+            <article class="case-study">
+              <Content />
+            </article>
+          </main>
+        </div>
+      </Fragment>
+    )
+  }
+
+  <div class="max-w-3xl mx-auto pb-16 md:pb-24 px-4 space-y-12 text-white">
+    {
+      next && next.id !== entry.id && (
+        <section class="space-y-4">
+          <h2 class="text-2xl font-bold font-instrument">{text.nextCaseStudy}</h2>
+          <a
+            href={localizePath(`/work/${slugOf(next)}/`, lang)}
+            class="border border-white/20 rounded-lg flex items-center gap-4 p-4 hover:bg-white/10 transition-all"
+          >
+            <Image src={next.data.cover} alt="" width={160} height={96} densities={[1, 2]} class="w-24 h-14 sm:w-32 sm:h-20 object-cover object-top rounded shrink-0" />
+            <span class="flex-1 min-w-0">
+              <span class="block text-lg font-bold font-instrument">{next.data.title}</span>
+              <span class="block text-sm text-gray-300 font-geist">{next.data.category}</span>
+            </span>
+            <Icon name="uil:arrow-right" class="w-4 h-4 shrink-0" />
+          </a>
+        </section>
+      )
+    }
+
+    <Footer lang={lang} />
+  </div>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-scrolly]");
+  const article = root?.querySelector<HTMLElement>(".case-study");
+  const stage = root?.querySelector<HTMLElement>("[data-stage]");
+  const slides = root?.querySelector<HTMLElement>("[data-slides]");
+
+  if (root && article && stage && slides) {
+    const cover = slides.firstElementChild as HTMLElement;
+
+    type Step = { heading: HTMLElement; blocks: HTMLElement[]; slide?: HTMLElement };
+    const steps: Step[] = [];
+
+    // A slide is the image, a blurred copy of it glowing behind, and its alt text as the caption.
+    const makeSlide = (img: HTMLImageElement) => {
+      const slide = document.createElement("figure");
+      slide.className = "stage-slide";
+      const frame = document.createElement("div");
+      frame.className = "stage-frame";
+      const w = Number(img.getAttribute("width")) || img.naturalWidth;
+      const h = Number(img.getAttribute("height")) || img.naturalHeight;
+      if (w && h) slide.style.setProperty("--ratio", String(w / h));
+      for (const cls of ["stage-glow", "stage-img"]) {
+        const copy = img.cloneNode() as HTMLImageElement;
+        copy.alt = "";
+        copy.className = cls;
+        frame.append(copy);
+      }
+      const caption = document.createElement("figcaption");
+      caption.className = "stage-caption";
+      caption.textContent = img.alt;
+      slide.append(frame, caption);
+      slides.append(slide);
+      return slide;
+    };
+
+    // Split the rendered Markdown into one step per ## heading, and give each
+    // section's first image its own slide on the stage.
+    for (const el of Array.from(article.children) as HTMLElement[]) {
+      if (el.tagName === "H2" || steps.length === 0) steps.push({ heading: el, blocks: [] });
+      const step = steps[steps.length - 1];
+      step.blocks.push(el);
+
+      const img = el instanceof HTMLImageElement ? el : el.querySelector("img");
+      if (!img || el.textContent?.trim()) continue;
+      el.classList.add("case-media");
+      if (step.slide) continue;
+      step.slide = makeSlide(img);
+    }
+
+    // Sections without their own image keep showing the previous one.
+    let slide = cover;
+    for (const step of steps) slide = step.slide ??= slide;
+
+    const allSlides = Array.from(slides.children) as HTMLElement[];
+    root.dataset.ready = "";
+
+    let active: Step | undefined;
+    let shown = cover;
+    let queued = false;
+
+    const update = () => {
+      queued = false;
+      // The active section is the last one whose heading has crossed 40% of the viewport.
+      const line = window.innerHeight * 0.4;
+      let current: Step | undefined;
+      for (const step of steps) {
+        if (step.heading.getBoundingClientRect().top <= line) current = step;
+      }
+      if (current === active) return;
+      const forward = steps.indexOf(current!) > steps.indexOf(active!);
+      active = current;
+
+      const target = current?.slide ?? cover;
+      if (target !== shown) {
+        stage.dataset.dir = forward ? "down" : "up";
+        for (const s of allSlides) {
+          s.toggleAttribute("data-active", s === target);
+          s.toggleAttribute("data-leaving", s === shown);
+        }
+        shown = target;
+      }
+
+      for (const step of steps) {
+        for (const block of step.blocks) block.toggleAttribute("data-dim", !!current && step !== current);
+      }
+    };
+
+    const queue = () => {
+      if (!queued) requestAnimationFrame(update);
+      queued = true;
+    };
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    update();
+
+    // Desktop only: click a dimmed section to scroll it into focus with its image.
+    const desktop = matchMedia("(min-width: 64rem)");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const stepOf = (target: EventTarget | null) => {
+      const block = (target as Element | null)?.closest?.(".case-study > *");
+      return steps.find((s) => s.blocks.includes(block as HTMLElement));
+    };
+
+    let peeked: Step | undefined;
+    const peek = (step: Step | undefined) => {
+      if (step === peeked) return;
+      for (const block of peeked?.blocks ?? []) block.removeAttribute("data-peek");
+      peeked = step && step !== active ? step : undefined;
+      for (const block of peeked?.blocks ?? []) block.setAttribute("data-peek", "");
+    };
+
+    article.addEventListener("mouseover", (e) => peek(desktop.matches ? stepOf(e.target) : undefined));
+    article.addEventListener("mouseleave", () => peek(undefined));
+    addEventListener("scroll", () => peek(undefined), { passive: true });
+
+    article.addEventListener("click", (e) => {
+      const step = stepOf(e.target);
+      if (!desktop.matches || !step || step === active) return;
+      // Leave links and text selection alone
+      if ((e.target as Element).closest("a") || getSelection()?.toString()) return;
+      // Land the heading a little above the 40% activation line
+      const top = step.heading.getBoundingClientRect().top + scrollY - innerHeight * 0.3;
+      scrollTo({ top, behavior: reducedMotion.matches ? "auto" : "smooth" });
+    });
+  }
+</script>
