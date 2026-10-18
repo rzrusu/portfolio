@@ -2,12 +2,15 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import type { Project } from "../data/site";
+import { t, type Lang } from "../i18n";
 
 interface Props extends Project {
+  lang: Lang;
   isLast?: boolean;
 }
 
-const { title, img, description, links, isLast = false } = Astro.props;
+const { title, img, description, links, lang, isLast = false } = Astro.props;
+const text = t(lang);
 const [primary, ...extra] = links;
 const isGitHub = primary?.icon === "uil:github";
 ---
@@ -22,7 +25,7 @@ const isGitHub = primary?.icon === "uil:github";
     >
       {title}
     </a>
-    <p class="text-sm text-gray-300 font-geist">{description}</p>
+    <p class="text-sm text-gray-300 font-geist">{description[lang]}</p>
   </div>
   {
     extra.map((link) => (
@@ -33,7 +36,7 @@ const isGitHub = primary?.icon === "uil:github";
   }
   <span class="flex items-center gap-1.5 shrink-0 text-sm text-gray-400 font-geist transition-colors group-hover:text-white">
     <span class="max-sm:hidden opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-      {isGitHub ? "view on GitHub" : "visit site"}
+      {isGitHub ? text.viewOnGitHub : text.visitSite}
     </span>
     <Icon name={isGitHub ? "uil:github" : "uil:external-link-alt"} class="w-4 h-4" />
   </span>

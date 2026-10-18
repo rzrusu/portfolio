@@ -1,0 +1,9 @@
+---
+import type { GetStaticPaths } from "astro";
+import CaseStudyPage from "../../../components/CaseStudyPage.astro";
+import { workPaths } from "../../../lib/work";
+
+export const getStaticPaths = (() => workPaths("ro")) satisfies GetStaticPaths;
+---
+
+<CaseStudyPage lang="ro" {...Astro.props} />

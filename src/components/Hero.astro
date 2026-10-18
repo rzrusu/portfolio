@@ -2,11 +2,22 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import avatar from "../assets/avatar.png";
-import { profile } from "../data/site";
+import { currentJob, profile } from "../data/site";
+import { t, type Lang } from "../i18n";
+import LangToggle from "./LangToggle.astro";
+
+interface Props {
+  lang: Lang;
+  alternates: Record<Lang, string>;
+}
+
+const { lang, alternates } = Astro.props;
+const text = t(lang);
 
 const socials = [
   { icon: "uil:behance", label: "Behance", href: profile.behance },
   { icon: "uil:linkedin", label: "LinkedIn", href: profile.linkedin },
+  { icon: "uil:github", label: "GitHub", href: profile.github },
 ];
 ---
 
@@ -24,26 +35,60 @@ const socials = [
       />
       <div class="min-w-0">
         <h1 class="text-lg font-bold font-instrument leading-tight">{profile.name}</h1>
-        <p class="text-sm text-gray-300 font-geist">{profile.role}</p>
+        <p class="text-sm text-gray-300 font-geist">{text.role}</p>
       </div>
     </div>
 
+    <div class="flex flex-wrap items-center gap-3">
+      {
+        text.availability && (
+          <p class="flex items-center gap-2 shrink-0 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs text-green-300 font-geist">
+            <span class="relative flex w-2 h-2">
+              <span class="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping motion-reduce:animate-none" />
+              <span class="relative w-2 h-2 rounded-full bg-green-400" />
+            </span>
+            {text.availability}
+          </p>
+        )
+      }
+      <LangToggle lang={lang} alternates={alternates} />
+    </div>
+  </div>
+
+  <div class="space-y-5">
+    <p class="text-3xl md:text-[2.75rem] md:leading-[1.15] font-semibold font-instrument tracking-tight text-gray-400 text-balance">
+      {text.pitchLead} <span class="text-white">{text.pitchHighlight}.</span>
+    </p>
+
     {
-      profile.availability && (
-        <p class="flex items-center gap-2 shrink-0 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs text-green-300 font-geist">
-          <span class="relative flex w-2 h-2">
-            <span class="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping motion-reduce:animate-none" />
-            <span class="relative w-2 h-2 rounded-full bg-green-400" />
+      currentJob && (
+        <a
+          href={currentJob.url}
+          class="group inline-flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 py-2 pl-3 pr-3.5 font-geist transition-colors hover:border-white/25 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <Image
+            src={currentJob.logo}
+            alt=""
+            width={36}
+            height={36}
+            densities={[1, 2]}
+            loading="eager"
+            class="w-9 h-9 shrink-0"
+          />
+          <span class="min-w-0 leading-snug">
+            <span class="block text-xs text-gray-400">{text.currently}</span>
+            <span class="block text-sm text-gray-300">
+              {text.currentRole} <span class="text-white whitespace-nowrap">{currentJob.company}</span>
+            </span>
           </span>
-          {profile.availability}
-        </p>
+          <Icon
+            name="uil:external-link-alt"
+            class="w-4 h-4 shrink-0 text-gray-400 transition-colors group-hover:text-white"
+          />
+        </a>
       )
     }
   </div>
-
-  <p class="text-3xl md:text-[2.75rem] md:leading-[1.15] font-semibold font-instrument tracking-tight text-gray-400 text-balance">
-    {profile.pitch.lead} <span class="text-white">{profile.pitch.highlight}.</span>
-  </p>
 
   <div class="flex flex-wrap items-center gap-3">
     <a
@@ -51,9 +96,9 @@ const socials = [
       class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm text-gray-950 font-geist hover:bg-gray-200 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
     >
       <Icon name="uil:envelope" class="w-4 h-4" />
-      Get in touch
+      {text.getInTouch}
     </a>
-    <nav aria-label="Social links" class="flex items-center gap-1">
+    <nav aria-label={text.socialLinks} class="flex items-center gap-1">
       {
         socials.map((s) => (
           <a

@@ -1,6 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import { profile } from "../data/site";
+import { t, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const text = t(Astro.props.lang);
 
 const year = new Date().getFullYear();
 ---
@@ -8,11 +15,11 @@ const year = new Date().getFullYear();
 <footer class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
   <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-400 font-instrument">
     <p>
-      This portfolio is open source. <a href={profile.source} class="text-blue-500 hover:text-blue-600 transition-all">View the source code</a>
+      {text.openSource} <a href={profile.source} class="text-blue-500 hover:text-blue-600 transition-all">{text.viewSource}</a>
     </p>
     <a href={profile.spotify} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-green-400 transition-colors">
       <Icon name="uil:headphones" class="w-4 h-4 text-green-500" />
-      see what I'm listening to
+      {text.listening}
     </a>
   </div>
   <p class="text-sm text-gray-400 font-instrument">

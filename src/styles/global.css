@@ -33,7 +33,11 @@
   & h2 + *, & h3 + * { margin-top: 0.75rem; }
   & > :first-child { margin-top: 0; }
 
-  & a { color: var(--color-blue-500); }
+  & a {
+    color: var(--color-blue-500);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   & a:hover { color: var(--color-blue-600); }
   & strong { color: white; }
 
@@ -157,7 +161,9 @@
   [data-scrolly][data-ready] .case-study {
     & .case-media { display: none; }
     & > * { transition: opacity 0.4s ease; }
-    & > [data-dim] { opacity: 0.35; }
+    & > [data-dim] { opacity: 0.35; cursor: pointer; }
+    /* Hovering a dimmed section brightens it to show it can be clicked */
+    & > [data-dim][data-peek] { opacity: 0.7; }
   }
 }
 

@@ -2,14 +2,17 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
+import { localizePath, t, type Lang } from "../i18n";
+import { slugOf } from "../lib/work";
 
 interface Props {
   entry: CollectionEntry<"work">;
+  lang: Lang;
 }
 
-const { entry } = Astro.props;
+const { entry, lang } = Astro.props;
 const { title, category, cover } = entry.data;
-const href = `/work/${entry.id}/`;
+const href = localizePath(`/work/${slugOf(entry)}/`, lang);
 ---
 
 <a
@@ -34,7 +37,7 @@ const href = `/work/${entry.id}/`;
       class="flex items-center gap-1.5 shrink-0 text-sm text-gray-400 font-geist transition-all duration-300 group-hover:text-white group-focus-visible:text-white"
     >
       <span class="max-sm:hidden opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0">
-        view case study
+        {t(lang).viewCaseStudy}
       </span>
       <Icon name="uil:arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
     </span>
