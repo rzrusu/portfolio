@@ -7,7 +7,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://rusu.me',
-  integrations: [icon(), sitemap()],
+  integrations: [
+    icon(),
+    sitemap({
+      // Same language codes as the pages' hreflang links
+      i18n: { defaultLocale: 'en', locales: { en: 'en', ro: 'ro' } },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

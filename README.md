@@ -1,43 +1,26 @@
-# Astro Starter Kit: Minimal
+# rusu.me
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio of Rusu Răzvan-Iulian, a UI/UX designer working on websites and interfaces for hosting and gaming companies. Built with [Astro](https://astro.build) and Tailwind CSS, in English (`/`) and Romanian (`/ro/`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+| Command           | What it does                                          |
+| :---------------- | :---------------------------------------------------- |
+| `npm install`     | Install dependencies                                  |
+| `npm run dev`     | Start the dev server at `localhost:4321`              |
+| `npm run build`   | Build the site to `dist/`                             |
+| `npm run preview` | Serve the built site locally                          |
+| `npm run check`   | Type-check the project with `astro check`             |
+| `npm run og`      | Re-render the social preview cards (needs Chrome)     |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Where things live
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Interface text** in both languages: `src/i18n.ts`
+- **Profile links, current job and side projects**: `src/data/site.ts`
+- **Case studies**: `src/content/work/<lang>/<slug>.md`. The file name becomes the URL (`/work/<slug>/`), and a study missing from `ro/` falls back to the English one. Studies with a `gallery` in their front matter show stacked screenshots instead of the scrolling layout.
+- **Images**: `src/assets/` (Astro optimises them at build time)
+- **Social preview cards**: `src/assets/og/`, rendered by `scripts/og-cards.mjs` from the text in `src/i18n.ts`. Run `npm run og` after changing the role, intro or availability text.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deployment
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Every push to `main` builds the site and deploys it to GitHub Pages (`.github/workflows/deploy.yml`), served at [rusu.me](https://rusu.me) via `public/CNAME`.
