@@ -1,9 +1,10 @@
 ---
 title: RocketNode
 category: Website Design
-summary: A complete marketing site for a FiveM and game server host. Fifteen page types, a step-by-step server configurator, and a shared set of sections that holds it all together on desktop and mobile.
+tagline: Fifteen page types for a FiveM-first game host
+summary: RocketNode sells FiveM servers first and everything else second. I designed its marketing site from a blank page, fifteen page types in all, with a numbered configurator in place of the usual pricing slider and one kit of sections holding it together on desktop and mobile.
 cover: ../../../assets/work/rocketnode/cover.webp
-coverAlt: RocketNode homepage hero, "Ultra-Fast FiveM Hosting"
+coverAlt: RocketNode homepage hero, "Ultra-Fast FiveM Hosting", with the Apollo panel surrounded by game icons
 client: RocketNode
 role: UI/UX Designer
 year: "2026"
@@ -12,67 +13,73 @@ website: https://rocketnode.com
 order: 1
 ---
 
-## Overview
-
-RocketNode hosts game servers, with FiveM (the multiplayer platform for GTA V) as its main product, alongside Minecraft, Rust and a long list of other games, plus VPS, web, Discord bot and dedicated server hosting.
-
-I designed the whole marketing site, from the first sketches of the homepage hero to every product, support and company page, on desktop and mobile.
-
-## The brief
+## A list, not a mood board
 
 ![The brief covered fifteen page types, from game hosting to partners and support](../../../assets/work/rocketnode/scope.webp)
 
-The brief was a page-by-page list: a homepage, a game browser, a page for each game, VPS, website, Discord bot and dedicated server hosting, plus locations, DDoS protection, hardware, partners, support, affiliates, about and legal. Fifteen page types in total.
+RocketNode runs game servers. FiveM, the multiplayer platform for GTA V, is the product that matters most, with Minecraft, Rust, Palworld and a long tail of other games behind it, plus VPS, web hosting, Discord bots and dedicated servers.
 
-A few requests shaped the whole project:
+The brief arrived as a page-by-page list. Homepage, game browser, a page for every game, four cloud products, then locations, DDoS protection, hardware, partners, support, affiliates, about and legal. Fifteen page types, and nothing existed yet for any of them.
 
-- **A hero with its own character.** Something in the spirit of competitors like Iceline, but with a creative, unique touch, and specifically not a carousel.
-- **Plans as individual cards, not a slider.** Customers should see every option at once.
-- **A step system for configuring a server.** Pick a hardware tier, a location, a billing cycle and extras such as storage or priority support.
-- **The same system for VPS, with a different feel.** Familiar steps, but its own look.
+Four lines in that list did most of the steering:
 
-## Process
+- The hero should have character. Iceline was the reference for the level of polish, with the explicit note that RocketNode's should look like its own thing. And no carousel.
+- Plans go in cards, every option visible at once. No slider.
+- Buying a server should feel like a short set of steps: hardware tier, location, billing cycle, extras such as storage or priority support.
+- VPS gets the same system, but it should not feel like a game page with the word "VPS" swapped in.
+
+## Six versions of one hero
 
 ![How the hero evolved, from a sketch to the final FiveM-focused design](../../../assets/work/rocketnode/process.webp)
 
-The hero went through the most rounds. It started as a rough sketch and a "Fast as a Rocket" wireframe with a placeholder for game characters peeking out from the side. From there I explored a left-aligned version with a cluster of game worlds, then stripped it back to a centred grayscale layout to get the structure right before adding colour.
+The hero took more rounds than any other part of the site, which is how it usually goes when a client asks for "character".
 
-The breakthrough was putting the product itself at the centre. The final hero shows RocketNode's game panel surrounded by the games it runs, which explains what the company does at a glance. Late on, the copy shifted from generic "Next-Gen Game Hosting" to leading with FiveM, the company's main product, and the accent moved from orange to the purple used across the site.
+The first wireframe was a headline on the left, "Fast as a Rocket", with a grey box on the right and a note to myself underneath: popular game characters peeking out, some cool background effect. Version three was that note taken literally. A cluster of game worlds floating beside the headline, bright and busy. It worked as an image and said nothing about RocketNode. Any host could have shipped it.
 
-## Navigation
+So I threw the colour away. Version four is a grayscale, centred layout with one grey rectangle where the picture would go, and that constraint turned out to be the useful one. The rectangle had to earn its place, and the thing that earned it was the product: the Apollo game panel, the screen customers will actually live in, with the games it runs arranged around it. You can read what the company does from the picture alone.
+
+Two late changes finished it. The headline moved from a generic "Next-Gen Game Hosting" to "Ultra-Fast FiveM Hosting", because that is what RocketNode wants to be found for. And the accent moved from orange to the purple used across the rest of the site. The orange belongs to FiveM, and in the final version it survives in exactly one place: the "Optimized for FiveM" badge above the headline.
+
+## A menu for dozens of games
 
 ![The games mega menu with popular games, badges and game services](../../../assets/work/rocketnode/navigation.webp)
 
-With dozens of games and five hosting products, the navigation had to do a lot without feeling heavy. The games menu leads with recognisable game icons, so people can jump straight to what they play, with small badges for new games and deals. A second column covers the game services. Account links (support, billing and the control panel) live in a slim bar above, out of the way of the main menu.
+Dozens of games and five hosting products is too much for a flat navigation bar, so the header has two layers. A slim top bar carries the announcement of the moment (Hytale plans, when these screens were made) and the account links: support, billing, control panel. Below it, FiveM Hosting gets its own top-level link rather than a place inside a dropdown, which is the navigation making the same point as the hero.
 
-## Picking a plan
+The Game Hosting menu is an icon grid. People who host Rust know the Rust icon, so the grid leads with the artwork and keeps labels small. Little badges handle what is new or discounted without a separate deals page, and a second column lists the game services that are not tied to one title: managed hosting, dedicated hardware, Discord bots.
+
+## Steps instead of a slider
 
 ![The FiveM server configurator: hardware tier and location steps next to the order summary](../../../assets/work/rocketnode/configurator.webp)
 
-Game pages use a numbered configurator instead of a pricing slider. Every hardware tier is visible as its own card, and each location shows an estimated ping, so customers can pick the closest server without guessing. An order summary sits beside the steps and keeps a running total, so the price never comes as a surprise at checkout.
+Most hosts sell plans with a RAM slider. Drag it, watch a price change, hope the hardware behind it is good. The brief asked for the opposite, and the game pages got a numbered configurator instead.
 
-## Same system, different feel
+Step one lays out every hardware tier as its own card with the specs that matter for a game server: cores, memory, NVMe storage. Step two is a grid of locations, each with an estimated ping from where the visitor is sitting. An order summary sits to the right the whole time, listing the plan, any add-ons like priority support, and a running total, with "Instant setup, cancel anytime" under the deploy button. Nothing about the price waits until checkout.
+
+## VPS: fewer choices, one at a time
 
 ![The VPS configurator with a four-step progress bar](../../../assets/work/rocketnode/vps.webp)
 
-VPS customers choose from fewer, bigger options, so the same idea takes a different shape. A four-step progress bar (tier, location, billing, plan) walks through one decision at a time, and a summary row along the bottom fills in as each choice is made.
+A VPS buyer makes a different kind of decision. There are two tiers, Budget and Premium, and the choice between them changes everything that follows. Showing every step at once would mean showing plans the customer can't buy yet.
 
-## Shared building blocks
+So the VPS configurator reveals itself step by step. A four-stage progress bar across the top (tier, location, billing, plan), one decision per screen, and a summary strip along the bottom that fills in as choices are made. The cards, the numbered steps and the purple selection state are the same components as the game pages. Only the pacing changed, which is what "same system, different feel" came to mean in practice.
+
+## One kit of sections
 
 ![The location picker with colour-coded estimated ping for each data centre](../../../assets/work/rocketnode/locations.webp)
 
-Fifteen page types only stay consistent if they share parts. I built the site from one set of sections reused across every page: features, data centre locations, the game panel, DDoS protection, FAQs, reviews, blog posts and a closing call to action. Each page adds the content specific to it, such as plans, hardware or partner tiers, and the shared sections do the rest.
+Fifteen page types stay consistent only if they are built from the same parts. The site is one set of sections reused everywhere: features, data centre locations, the game panel, DDoS protection, FAQs, reviews, blog posts and a closing call to action. A product page adds the thing only it needs, such as its plans or its partner tiers, and the kit does the rest.
 
-The location grid is a good example. Ping estimates are colour-coded from green to red, so the closest locations stand out without anyone needing to read the numbers.
+The location grid is the piece I would point to first. Ten cities across four continents, each with its region and an estimated ping, coloured from green through orange to red. You don't need to read the numbers to see that Ashburn is close and Mumbai is not, which is the whole job of that section.
 
 ## Mobile
 
 ![Three mobile screens: the hero, the game panel and customer reviews](../../../assets/work/rocketnode/mobile.webp)
 
-Every shared section has a mobile version. Wide grids collapse into single columns, the service tabs stack, the plan cards turn into one featured plan with a link to the rest, and the game panel diagram becomes a simple list of features.
+Every section in the kit has a phone version, designed rather than left to collapse on its own. The hero stacks and keeps its two buttons and Trustpilot line. The services selector becomes a short list. The game panel section, a diagram on desktop, becomes three features with icons and a "Live Demo" button, with the panel itself peeking in at the bottom. Reviews turn into a column of cards under the overall rating.
 
-## Outcome
+## What shipped
 
-The design is now live at [rocketnode.com](https://rocketnode.com).
+The full site is live at [rocketnode.com](https://rocketnode.com).
 
-<!-- TODO: add results here, such as launch date, conversion or sign-up changes, or a quote from the RocketNode team. -->
+<!-- TODO: add results when you have them, such as launch date, conversion or sign-up changes, or a quote from the RocketNode team. -->

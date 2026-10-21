@@ -17,7 +17,7 @@ Portfolio of Rusu Răzvan-Iulian, a UI/UX designer working on websites and inter
 
 - **Interface text** in both languages: `src/i18n.ts`
 - **Profile links, current job and side projects**: `src/data/site.ts`
-- **Case studies**: `src/content/work/<lang>/<slug>.md`. The file name becomes the URL (`/work/<slug>/`), and a study missing from `ro/` falls back to the English one. Studies with a `gallery` in their front matter show stacked screenshots instead of the scrolling layout.
+- **Case studies**: `src/content/work/<lang>/<slug>.md`. The file name becomes the URL (`/work/<slug>/`), and a study missing from `ro/` falls back to the English one. Studies with a `gallery` in their front matter show stacked screenshots instead of the scrolling layout; any text in the body is shown above the gallery as a short intro. The optional `tagline` is the one-liner on the homepage cards (it falls back to `category`).
 - **Images**: `src/assets/` (Astro optimises them at build time)
 - **Social preview cards**: `src/assets/og/`, rendered by `scripts/og-cards.mjs` from the text in `src/i18n.ts`. Run `npm run og` after changing the role, intro or availability text.
 

@@ -1,7 +1,8 @@
 ---
 title: Sparked Host
 category: Web design
-summary: Redesignul complet al site-ului unei companii de hosting pentru jocuri și cloud. Pagini de jocuri care vând planuri în trei moduri diferite, un catalog de servere dedicate care știe când se termină stocul și pagini de companie, de la parteneriate la un site de cariere.
+tagline: Un redesign complet pentru un host de jocuri și cloud
+summary: Redesignul, pagină cu pagină, al site-ului Sparked Host. Pagini de jocuri care vând aceleași planuri în trei moduri diferite, un catalog de servere dedicate construit ca tabel în loc de carduri, pagini de produs care știu când se termină stocul și paginile de companie din jurul lor, de la parteneriate la un site de cariere.
 cover: ../../../assets/work/sparked-host/cover.webp
 coverAlt: Secțiunea principală Sparked Host pentru Minecraft, cu un raft de jocuri și planurile populare
 client: Sparked Host
@@ -12,68 +13,72 @@ website: https://sparkedhost.com
 order: 2
 ---
 
-## Prezentare
-
-Sparked Host oferă servere pentru Minecraft și zeci de alte jocuri, alături de hosting VPS și servere dedicate.
-
-Am refăcut designul site-ului pagină cu pagină: paginile de prezentare pentru jocuri, catalogul de jocuri, perioadele de probă gratuite, hosting-ul VPS, serverele dedicate, panoul de control și pagini de companie precum Despre noi, Parteneriate și un nou site de cariere.
-
-## Cerințele
+## Un redesign cu listă de verificare
 
 ![O selecție dintre tipurile de pagini din redesign, de la paginile de jocuri până la cariere](../../../assets/work/sparked-host/scope.webp)
 
-Cerințele au enumerat fiecare pagină cu secțiunile de care avea nevoie, plus note despre ce ar face-o să iasă în evidență. Câteva dintre ele au modelat tot proiectul:
+Sparked Host oferă servere pentru Minecraft și zeci de alte jocuri, alături de VPS și servere dedicate. Cerințele pentru redesign au fost neobișnuit de concrete: fiecare pagină, secțiunile de care avea nevoie și o notă despre ce ar face-o să iasă în evidență față de site-urile cu care o compară clienții.
 
-- **Jocurile și planurile trebuie să se vadă imediat.** Secțiunea principală a paginii de prezentare trebuia să arate jocurile populare și pachetele lor, nu doar un titlu.
-- **O secțiune despre panoul de control care să nu copieze concurența.** Shockbyte a fost numit explicit.
-- **Trei moduri de a vinde planurile.** Două variante bazate pe pachete și una cu un slider, fiecare permițând alegerea locației și a liniei de hardware odată cu planul, cu perioadele de probă gratuite menționate sus în pagină.
-- **Servere dedicate cu un aer diferit.** Un design distinct de paginile de jocuri, cu alegerea locației și filtre.
-- **Pagini de produs care știu când se termină stocul.** Serverele indisponibile își schimbă butonul din „cumpără” în „intră pe lista de așteptare”.
+Câteva dintre notele acelea au dat direcția pentru tot restul:
 
-## Procesul
+- Secțiunea principală a paginii de prezentare trebuia să arate jocurile și planurile înainte ca cineva să deruleze. Un titlu și un buton nu erau de ajuns.
+- Secțiunea despre panoul de control nu avea voie să semene cu a celor de la Shockbyte. Concurentul a fost numit explicit.
+- Planurile trebuiau vândute în trei moduri: două construite în jurul pachetelor, unul în jurul unui carusel, fiecare permițând alegerea locației și a liniei de hardware odată cu planul, cu perioadele de probă gratuite menționate sus în pagină.
+- Serverele dedicate trebuiau să se simtă ca un alt produs, cu alegerea locației și filtre, nu carduri de planuri cu cifre mai mari.
+- Paginile de produs trebuiau să reacționeze la stoc. Un server indisponibil își schimbă butonul din „cumpără” în „intră pe lista de așteptare”.
+
+## Secțiunea principală, de șase ori
 
 ![Cum a evoluat secțiunea principală în șase variante, până la raftul de jocuri](../../../assets/work/sparked-host/process-ro.webp)
 
-Secțiunea principală a trecut prin mai multe variante decât orice altceva. A pornit de la un layout aliniat la stânga, cu nivelurile de planuri dedesubt, apoi a urmat o variantă în care, când treci cu mouse-ul peste un plan, fundalul se estompează și planul respectiv trece în prim-plan.
+Prima variantă a fost cea sigură: titlu centrat, cinci bife, patru niveluri de planuri dedesubt și săgeți de carusel pe margini. A doua a adăugat un truc: când treci cu mouse-ul peste un plan, restul secțiunii se estompează și planul acela iese în față. Arăta bine pe desktop și nu a supraviețuit. Are nevoie de mouse și ascunde trei planuri ca să arate unul.
 
-De acolo s-a împărțit în două direcții: un „raft de jocuri”, cu celelalte jocuri Sparked așezate unul sub altul în dreapta, și un layout centrat care punea accent pe detaliile planurilor, inclusiv o ofertă evidențiată pentru cel mai vândut plan. Varianta finală s-a întors la raftul de jocuri. Face exact ce cereau cerințele: arată gama de jocuri înainte ca cineva să deruleze, iar planurile populare stau chiar sub titlu.
+De acolo, secțiunea s-a împărțit în două direcții. Una punea personajele din Minecraft în mijloc și împingea planurile jos, întâi cu o insignă de reducere, apoi cu un card „Best Seller” evidențiat, cu toate specificațiile lui. Cealaltă așeza celelalte jocuri Sparked pe marginea din dreapta, un raft cu Minecraft tras în față și Satisfactory și Palworld în spate.
 
-## Trei moduri de a alege un plan
+Raftul a câștigat, pentru că răspunde la prima notă din cerințe. Jocurile se văd înainte ca cineva să deruleze. Cele trei planuri populare stau direct sub titlu, cu prețurile lor, nota de pe Trustpilot stă deasupra, iar restul catalogului e la un clic distanță, în dreapta.
+
+## Patru pași, două viteze
 
 ![Selectorul de planuri în patru pași: cu toți pașii deschiși în stânga și cu pași care se deblochează pe rând în dreapta](../../../assets/work/sparked-host/plans-steps.webp)
 
-Primele două variante folosesc aceiași patru pași numerotați: tipul de server, locația, planul, apoi verificarea și plata. În prima, toți pașii sunt deschiși de la început, ca clienții experimentați să ajungă direct la ce vor. În a doua, fiecare pas se deblochează abia după cel dinainte, cu un mesaj scurt care spune ce trebuie ales mai întâi, așa că nimeni nu se pierde pe drum.
+Cele două variante bazate pe pachete folosesc aceiași patru pași numerotați: tipul de server, locația, planul, apoi verificarea și plata. Diferența e cât vezi din ei deodată.
 
-Fiecare locație are o mică iconiță de semnal pentru calitatea estimată a conexiunii. Cine nu știe ce tip de server să aleagă le poate compara sau poate contacta echipa de vânzări fără să iasă din flux.
+În prima, toți cei patru pași sunt deschiși de la început. Cine a mai cumpărat un server de Minecraft poate sări direct la pasul trei. În a doua, fiecare pas se deblochează abia după cel de deasupra, cu un mesaj scurt care spune ce trebuie ales mai întâi. Nimeni nu poate alege un plan pentru o locație care nu îl oferă, și nimeni nu se pierde.
 
-## Sau toate dintr-o privire
+Detaliile sunt comune. Alegerea dintre Vanilla, Modded și Community dezvăluie hardware-ul tipului respectiv (un Ryzen 9 partajat, DDR4, SSD-uri de bază pentru Vanilla) și cui i se potrivește. Un rând „Not sure which to choose?” oferă o comparație și un contact de vânzări fără să părăsești pagina. Locațiile sunt grupate pe continente și fiecare poartă o mică iconiță de semnal pentru cât de bună e probabil conexiunea de acolo de unde se află vizitatorul, iar cele pe care Sparked nu le oferă pentru tipul ales sunt estompate, nu ascunse.
+
+## Sau sari peste pași
 
 ![Planurile grupate după tipul de server, fiecare cu propriul carusel](../../../assets/work/sparked-host/plans-carousel.webp)
 
-A treia variantă renunță la pași. Fiecare tip de server (Vanilla, Modded și Community) primește propriul rând, cu ce include fiecare plan listat sus și un carusel de planuri dedesubt, numite după blocuri din Minecraft, precum Copper, Emerald și Netherite. Se potrivește celor care preferă să compare prețurile dintr-o privire.
+A treia variantă e pentru cei care preferă să compare prețuri decât să răspundă la întrebări. Fiecare tip de server primește o bandă proprie, Vanilla în verde, Modded în albastru, cu „included with all plans” listat în colț, ca banda să explice singură diferența: Modded vine cu un instalator de modpack-uri și unul de pluginuri, Vanilla nu are nevoie de ele. Dedesubt, un carusel de planuri numite după blocuri din Minecraft, Copper, Emerald, Netherite, fiecare cu un preț, trei specificații și un buton Add to Cart.
 
-## O secțiune proprie pentru panoul de control
+## O secțiune de panou care nu e o captură de ecran
 
 ![Secțiunea despre panou, cu instrumentele panoului Apollo lângă o ilustrație a panoului](../../../assets/work/sparked-host/panel.webp)
 
-În locul unei alte capturi statice de panou, secțiunea listează instrumentele panoului Apollo în partea stângă (consolă, manager de fișiere, instalator de modpack-uri, instalator de pluginuri și altele), lângă o ilustrație simplificată a panoului. Explică ce poate face clientul fără să-i ceară să citească un zid de funcții.
+Fiecare host are o secțiune despre panoul lui de control, și aproape toate sunt o captură de ecran cu un paragraf. Cerințele au exclus copierea unui anumit concurent, și oricum nu voiam încă o captură.
 
-## Servere dedicate
+Secțiunea asta e o listă și un desen. Lista coboară pe stânga: consolă, manager de fișiere, instalator de modpack-uri, instalator de pluginuri, reverse proxy, import de server, împărțire de server. Desenul din dreapta e un panou Apollo simplificat, iar instrumentul evidențiat în listă e cel desenat în dreapta. Spune ce face panoul cu șapte etichete în loc de un zid de funcții.
+
+## Serverele dedicate, ca tabel
 
 ![Lista de servere dedicate, cu locație, filtre rapide și coloane sortabile](../../../assets/work/sparked-host/dedicated.webp)
 
-Serverele dedicate aveau nevoie de un aspect propriu, așa că pagina începe cu o listă filtrabilă în locul cardurilor cu planuri. Clienții aleg țara, aplică filtre rapide precum AMD, Intel, stocare mare sau lățime de bandă și sortează după procesor, memorie, stocare, timpul de configurare sau preț. Fiecare rând arată dintr-o privire ce contează la un server bare metal, cu un buton de comandă la final.
+Cine cumpără bare metal vrea să compare, nu să răsfoiască. Așa că pagina de servere dedicate începe cu un tabel, nu cu carduri. Un dropdown de locație, un rând de filtre rapide (oferte, AMD, Intel, stocare mare, performanță, lățime de bandă) și coloane sortabile pentru procesor, memorie, stocare, timp de configurare și preț. Fiecare rând are marca procesorului, specificațiile care contează, prețul, un link de detalii și un buton de comandă. Secțiunea principală de deasupra păstrează aceleași cinci bife și rândul cu Trustpilot ca paginile de jocuri, singurul lucru care leagă intenționat cele două produse.
 
-## Când se termină stocul
+## Două stări, o singură pagină de produs
 
 ![Aceeași pagină de produs pentru un server dedicat, în stoc cu Add to Cart și fără stoc cu Join The Waitlist](../../../assets/work/sparked-host/stock.webp)
 
-Fiecare server dedicat are o pagină de produs cu specificațiile complete pentru procesor, memorie, stocare și lățime de bandă. Stocul se actualizează automat, așa că am proiectat ambele stări. Când serverul e în stoc, pagina arată locația și un buton „Add to Cart”. Când nu mai e, același loc devine roșu, iar butonul se schimbă în „Join The Waitlist”, ca clienții interesați să nu se piardă.
+Fiecare server dedicat are o pagină de produs cu specificațiile complete: procesor, memorie, stocare, lățime de bandă. Stocul se schimbă fără ca cineva să editeze pagina, așa că trebuiau proiectate ambele stări, nu doar cea fericită.
 
-## Rezultatul
+Când serverul e în stoc, cardul cu prețul arată locația cu o iconiță de semnal, un punct verde „In Stock” și un buton „Add to Cart”. Când nu mai e, rândul cu locația dispare, punctul devine roșu, iar butonul se schimbă în „Join The Waitlist”. Un mic link „Refresh Availability” stă sub card în ambele stări. Nimic altceva nu se mișcă, așa că un client care revine pe aceeași pagină știe exact ce s-a schimbat.
 
-Pe lângă paginile prezentate aici, proiectul a mai cuprins perioadele de probă gratuite, hosting-ul VPS, pagina panoului Apollo, Despre noi, Parteneriate, un program de afiliere, protecția DDoS, o pagină de destinație pentru Google Ads și un site de cariere, cu anunțuri de angajare și aplicări.
+## Restul proiectului
+
+Paginile de mai sus sunt cele cu o poveste. Proiectul a mai cuprins pagina perioadelor de probă gratuite, hosting-ul VPS, pagina panoului Apollo, Despre noi, Parteneriate, un program de afiliere, protecția DDoS, o pagină de destinație pentru Google Ads și un site de cariere, cu anunțuri de angajare, filtre pentru locație și interval salarial și un flux de aplicare.
 
 Site-ul actual Sparked Host este pe [sparkedhost.com](https://sparkedhost.com).
 
-<!-- TODO: adaugă aici rezultatele, de exemplu ce pagini s-au lansat, schimbări în înscrieri sau vânzări, ori un citat de la echipa Sparked Host. -->
+<!-- TODO: adaugă aici rezultatele când le ai, de exemplu ce pagini s-au lansat, schimbări în înscrieri sau vânzări, ori un citat de la echipa Sparked Host. -->

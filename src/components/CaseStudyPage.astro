@@ -19,6 +19,8 @@ const { lang, entry, next } = Astro.props;
 const text = t(lang);
 const { title, summary, cover, coverAlt, gallery } = entry.data;
 const { Content } = await render(entry);
+// Gallery studies may carry a short written intro above the screenshots
+const hasBody = Boolean(entry.body?.trim());
 
 const path = `/work/${slugOf(entry)}/`;
 const alternates = { en: localizePath(path, "en"), ro: localizePath(path, "ro") };
@@ -40,12 +42,17 @@ const coverProps = {
   imageAlt={coverAlt}
   type="article"
 >
-  <!-- Gallery: screenshots stacked under the intro, for projects without a written case study -->
+  <!-- Gallery: a short intro (if any) and screenshots stacked under it, for projects without a full written case study -->
   {
     gallery ? (
       <main class="max-w-6xl mx-auto py-16 md:py-24 px-4 space-y-12 text-white">
         <div class="max-w-3xl space-y-12">
           <CaseStudyIntro lang={lang} entry={entry} alternates={alternates} />
+          {hasBody && (
+            <article class="case-study">
+              <Content />
+            </article>
+          )}
         </div>
         <div class="space-y-12">
           {gallery.map((shot, i) => (
@@ -115,7 +122,7 @@ const coverProps = {
             <Image src={next.data.cover} alt="" width={160} height={96} densities={[1, 2]} class="w-24 h-14 sm:w-32 sm:h-20 object-cover object-top rounded shrink-0" />
             <span class="flex-1 min-w-0">
               <span class="block text-lg font-bold font-instrument">{next.data.title}</span>
-              <span class="block text-sm text-gray-300 font-geist">{next.data.category}</span>
+              <span class="block text-sm text-gray-300 font-geist">{next.data.tagline ?? next.data.category}</span>
             </span>
             <Icon name="uil:arrow-right" class="w-4 h-4 shrink-0" />
           </a>

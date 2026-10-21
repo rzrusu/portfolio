@@ -1,9 +1,10 @@
 ---
 title: RocketNode
 category: Web design
-summary: Un site de prezentare complet pentru o firmă de hosting FiveM și servere de jocuri. Cincisprezece tipuri de pagini, un configurator de servere pas cu pas și un set comun de secțiuni care leagă totul, pe desktop și pe mobil.
+tagline: Cincisprezece tipuri de pagini pentru un host axat pe FiveM
+summary: RocketNode vinde în primul rând servere FiveM și abia apoi restul. Am proiectat site-ul de prezentare de la zero, cincisprezece tipuri de pagini în total, cu un configurator numerotat în locul obișnuitului slider de prețuri și un singur set de secțiuni care leagă totul, pe desktop și pe mobil.
 cover: ../../../assets/work/rocketnode/cover.webp
-coverAlt: Secțiunea principală a site-ului RocketNode, „Ultra-Fast FiveM Hosting”
+coverAlt: Secțiunea principală a site-ului RocketNode, „Ultra-Fast FiveM Hosting”, cu panoul Apollo înconjurat de iconițele jocurilor
 client: RocketNode
 role: Designer UI/UX
 year: "2026"
@@ -12,67 +13,73 @@ website: https://rocketnode.com
 order: 1
 ---
 
-## Prezentare
-
-RocketNode oferă hosting pentru servere de jocuri, cu FiveM (platforma multiplayer pentru GTA V) ca produs principal, alături de Minecraft, Rust și o listă lungă de alte jocuri, plus hosting VPS, web, pentru boți de Discord și servere dedicate.
-
-Am proiectat întregul site de prezentare, de la primele schițe ale secțiunii principale până la fiecare pagină de produs, de suport și despre companie, pe desktop și pe mobil.
-
-## Cerințele
+## O listă, nu un moodboard
 
 ![Cerințele au acoperit cincisprezece tipuri de pagini, de la hosting de jocuri până la parteneri și suport](../../../assets/work/rocketnode/scope.webp)
 
-Cerințele au venit sub forma unei liste, pagină cu pagină: o pagină principală, un catalog de jocuri, o pagină pentru fiecare joc, hosting VPS, web, pentru boți de Discord și servere dedicate, plus locații, protecție DDoS, hardware, parteneri, suport, program de afiliere, despre noi și termeni legali. Cincisprezece tipuri de pagini în total.
+RocketNode oferă hosting pentru servere de jocuri. FiveM, platforma multiplayer pentru GTA V, este produsul care contează cel mai mult, urmat de Minecraft, Rust, Palworld și o listă lungă de alte jocuri, plus VPS, hosting web, boți de Discord și servere dedicate.
 
-Câteva cerințe au modelat tot proiectul:
+Cerințele au venit sub forma unei liste, pagină cu pagină. Pagina principală, un catalog de jocuri, o pagină pentru fiecare joc, patru produse cloud, apoi locații, protecție DDoS, hardware, parteneri, suport, program de afiliere, despre noi și termeni legali. Cincisprezece tipuri de pagini, și nimic nu exista încă pentru niciuna dintre ele.
 
-- **O secțiune principală cu personalitate.** În spiritul concurenților precum Iceline, dar cu o notă creativă și unică, și în niciun caz un carusel.
-- **Planuri prezentate ca carduri individuale, nu într-un slider.** Clienții trebuie să vadă toate opțiunile dintr-o privire.
-- **Un sistem în pași pentru configurarea unui server.** Alegi nivelul de hardware, locația, perioada de facturare și opțiuni extra, precum spațiu de stocare suplimentar sau suport prioritar.
-- **Același sistem pentru VPS, dar cu alt aer.** Pași familiari, cu un aspect propriu.
+Patru rânduri din lista aceea au dat direcția:
 
-## Procesul
+- Secțiunea principală trebuia să aibă personalitate. Iceline era reperul pentru nivelul de finisare, cu mențiunea explicită că a lui RocketNode trebuie să arate ca ceva propriu. Și fără carusel.
+- Planurile se prezintă pe carduri, cu toate opțiunile vizibile deodată. Fără slider.
+- Cumpărarea unui server trebuia să se simtă ca o serie scurtă de pași: nivelul de hardware, locația, perioada de facturare, extraopțiuni precum spațiu suplimentar sau suport prioritar.
+- VPS-ul primește același sistem, dar nu trebuie să pară o pagină de joc în care s-a înlocuit un cuvânt cu „VPS”.
+
+## Șase variante pentru o singură secțiune principală
 
 ![Cum a evoluat secțiunea principală, de la o schiță la designul final axat pe FiveM](../../../assets/work/rocketnode/process-ro.webp)
 
-Secțiunea principală a trecut prin cele mai multe iterații. A pornit de la o schiță rapidă și un wireframe „Fast as a Rocket”, cu un loc rezervat pentru personaje din jocuri care apar din lateral. De acolo am explorat o variantă aliniată la stânga, cu un grup de lumi din jocuri, apoi am simplificat-o într-un layout centrat, în nuanțe de gri, ca să clarific structura înainte de a adăuga culoarea.
+Secțiunea principală a trecut prin mai multe runde decât orice altă parte a site-ului, cum se întâmplă de obicei când un client cere „personalitate”.
 
-Momentul decisiv a fost să pun chiar produsul în centru. Varianta finală arată panoul de control RocketNode, înconjurat de jocurile pe care le rulează, așa că explică dintr-o privire ce face compania. Spre final, mesajul s-a mutat de la genericul „Next-Gen Game Hosting” la FiveM, produsul principal al companiei, iar culoarea de accent s-a schimbat din portocaliu în violetul folosit pe tot site-ul.
+Primul wireframe avea titlul în stânga, „Fast as a Rocket”, o casetă gri în dreapta și o notă pentru mine dedesubt: personaje populare din jocuri care apar din lateral, un efect de fundal interesant. A treia variantă a fost nota aceea luată ad litteram. Un grup de lumi din jocuri plutind lângă titlu, colorat și aglomerat. Funcționa ca imagine și nu spunea nimic despre RocketNode. Orice host ar fi putut-o lansa.
 
-## Navigarea
+Așa că am renunțat la culoare. A patra variantă este un layout centrat, în nuanțe de gri, cu un singur dreptunghi gri în locul imaginii, iar constrângerea aceea s-a dovedit cea utilă. Dreptunghiul trebuia să-și merite locul, iar ce i l-a câștigat a fost produsul: panoul de control Apollo, ecranul în care clienții chiar își petrec timpul, cu jocurile pe care le rulează așezate în jurul lui. Înțelegi ce face compania doar din imagine.
+
+Două schimbări târzii au încheiat-o. Titlul a trecut de la genericul „Next-Gen Game Hosting” la „Ultra-Fast FiveM Hosting”, pentru că asta vrea RocketNode să fie găsit. Iar accentul s-a mutat din portocaliu în violetul folosit pe restul site-ului. Portocaliul aparține FiveM și, în varianta finală, supraviețuiește într-un singur loc: eticheta „Optimized for FiveM” de deasupra titlului.
+
+## Un meniu pentru zeci de jocuri
 
 ![Meniul de jocuri, cu jocurile populare, etichete și serviciile pentru jocuri](../../../assets/work/rocketnode/navigation.webp)
 
-Cu zeci de jocuri și cinci produse de hosting, navigarea trebuia să acopere mult fără să pară încărcată. Meniul de jocuri începe cu iconițe ușor de recunoscut, ca oamenii să ajungă direct la jocul lor, cu mici etichete pentru jocurile noi și pentru oferte. A doua coloană cuprinde serviciile pentru jocuri. Linkurile de cont (suport, facturare și panoul de control) stau într-o bară subțire deasupra, ca să nu aglomereze meniul principal.
+Zeci de jocuri și cinci produse de hosting sunt prea mult pentru o bară de navigare simplă, așa că antetul are două niveluri. O bară subțire deasupra poartă anunțul momentului (planurile Hytale, când au fost făcute aceste ecrane) și linkurile de cont: suport, facturare, panou de control. Sub ea, FiveM Hosting primește propriul link de prim nivel, nu un loc într-un dropdown, adică navigarea spune același lucru ca secțiunea principală.
 
-## Alegerea unui plan
+Meniul Game Hosting este o grilă de iconițe. Cine găzduiește Rust recunoaște iconița Rust, așa că grila pune artwork-ul în față și păstrează etichetele mici. Insigne discrete marchează ce e nou sau redus, fără o pagină separată de oferte, iar o a doua coloană listează serviciile care nu țin de un singur joc: hosting administrat, hardware dedicat, boți de Discord.
+
+## Pași în loc de slider
 
 ![Configuratorul de servere FiveM: pașii pentru nivelul de hardware și locație, lângă sumarul comenzii](../../../assets/work/rocketnode/configurator.webp)
 
-Paginile de jocuri folosesc un configurator numerotat în locul unui slider de prețuri. Fiecare nivel de hardware apare pe un card separat, iar fiecare locație afișează un ping estimat, ca clienții să aleagă cel mai apropiat server fără să ghicească. Lângă pași stă un sumar al comenzii care ține evidența totalului, așa că prețul nu devine niciodată o surpriză la plată.
+Majoritatea hosturilor vând planuri printr-un slider de RAM. Îl tragi, vezi cum se schimbă prețul și speri că hardware-ul din spate e bun. Cerințele au cerut exact opusul, iar paginile de jocuri au primit un configurator numerotat.
 
-## Același sistem, alt aer
+Primul pas așază fiecare nivel de hardware pe propriul card, cu specificațiile care contează la un server de joc: nuclee, memorie, stocare NVMe. Al doilea pas este o grilă de locații, fiecare cu un ping estimat de acolo de unde se află vizitatorul. Un sumar al comenzii stă în dreapta tot timpul, cu planul, eventualele opțiuni extra precum suportul prioritar și un total actualizat, iar sub butonul de lansare scrie „Instant setup, cancel anytime”. Nimic legat de preț nu așteaptă până la plată.
+
+## VPS: mai puține alegeri, una pe rând
 
 ![Configuratorul VPS, cu o bară de progres în patru pași](../../../assets/work/rocketnode/vps.webp)
 
-Clienții VPS aleg dintre mai puține opțiuni, dar mai mari, așa că aceeași idee capătă altă formă. O bară de progres în patru pași (nivel, locație, facturare, plan) te ghidează printr-o singură decizie odată, iar un rând de sumar din partea de jos se completează pe măsură ce faci fiecare alegere.
+Un cumpărător de VPS ia un alt fel de decizie. Există două niveluri, Budget și Premium, iar alegerea dintre ele schimbă tot ce urmează. Dacă ai arăta toți pașii deodată, ai arăta planuri pe care clientul încă nu le poate cumpăra.
 
-## Componente comune
+Așa că configuratorul VPS se dezvăluie pas cu pas. O bară de progres în patru etape deasupra (nivel, locație, facturare, plan), o singură decizie pe ecran și o bandă de sumar jos, care se completează pe măsură ce alegi. Cardurile, pașii numerotați și starea de selecție violet sunt aceleași componente ca pe paginile de jocuri. S-a schimbat doar ritmul, și asta a ajuns să însemne, în practică, „același sistem, alt aer”.
+
+## Un singur set de secțiuni
 
 ![Selectorul de locații, cu ping estimat colorat pentru fiecare centru de date](../../../assets/work/rocketnode/locations.webp)
 
-Cincisprezece tipuri de pagini rămân coerente doar dacă folosesc aceleași piese. Am construit site-ul dintr-un singur set de secțiuni refolosite pe fiecare pagină: avantaje, locațiile centrelor de date, panoul de control, protecția DDoS, întrebări frecvente, recenzii, articole de blog și un îndemn final la acțiune. Fiecare pagină adaugă conținutul specific ei, precum planuri, hardware sau niveluri de parteneriat, iar secțiunile comune se ocupă de rest.
+Cincisprezece tipuri de pagini rămân coerente doar dacă sunt construite din aceleași piese. Site-ul este un singur set de secțiuni refolosite peste tot: avantaje, locațiile centrelor de date, panoul de control, protecția DDoS, întrebări frecvente, recenzii, articole de blog și un îndemn final la acțiune. O pagină de produs adaugă doar ce îi aparține, cum ar fi planurile sau nivelurile de parteneriat, iar setul se ocupă de rest.
 
-Grila de locații e un exemplu bun. Estimările de ping sunt colorate de la verde la roșu, așa că cele mai apropiate locații ies în evidență fără să fie nevoie să citești cifrele.
+Grila de locații e piesa pe care aș arăta-o prima. Zece orașe pe patru continente, fiecare cu regiunea și un ping estimat, colorat de la verde prin portocaliu până la roșu. Nu trebuie să citești cifrele ca să vezi că Ashburn e aproape și Mumbai nu, și exact asta e treaba secțiunii.
 
 ## Pe mobil
 
 ![Trei ecrane de mobil: secțiunea principală, panoul de control și recenziile clienților](../../../assets/work/rocketnode/mobile.webp)
 
-Fiecare secțiune comună are o versiune pentru mobil. Grilele late devin o singură coloană, taburile de servicii se așază unul sub altul, cardurile cu planuri se reduc la un singur plan recomandat, cu link către celelalte, iar diagrama panoului de control devine o listă simplă de funcții.
+Fiecare secțiune din set are o versiune pentru telefon, proiectată, nu lăsată să se prăbușească singură pe o coloană. Secțiunea principală se așază vertical și își păstrează cele două butoane și rândul cu Trustpilot. Selectorul de servicii devine o listă scurtă. Secțiunea panoului de control, o diagramă pe desktop, devine trei funcții cu iconițe și un buton „Live Demo”, cu panoul propriu-zis ițindu-se de jos. Recenziile devin o coloană de carduri sub nota generală.
 
-## Rezultatul
+## Ce s-a lansat
 
-Designul este acum live pe [rocketnode.com](https://rocketnode.com).
+Site-ul complet este live pe [rocketnode.com](https://rocketnode.com).
 
-<!-- TODO: adaugă aici rezultatele, de exemplu data lansării, schimbări în conversii sau înscrieri, ori un citat de la echipa RocketNode. -->
+<!-- TODO: adaugă aici rezultatele când le ai, de exemplu data lansării, schimbări în conversii sau înscrieri, ori un citat de la echipa RocketNode. -->

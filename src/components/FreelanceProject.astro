@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { entry, lang } = Astro.props;
-const { title, category, cover } = entry.data;
+const { title, category, tagline, cover } = entry.data;
 const href = localizePath(`/work/${slugOf(entry)}/`, lang);
 ---
 
@@ -31,7 +31,7 @@ const href = localizePath(`/work/${slugOf(entry)}/`, lang);
   <div class="p-4 flex items-center justify-between gap-4">
     <div class="min-w-0">
       <h3 class="text-lg font-bold font-instrument text-gray-100 group-hover:text-white transition-colors">{title}</h3>
-      <p class="text-sm text-gray-300 font-geist">{category}</p>
+      <p class="text-sm text-gray-300 font-geist">{tagline ?? category}</p>
     </div>
     <span
       class="flex items-center gap-1.5 shrink-0 text-sm text-gray-400 font-geist transition-all duration-300 group-hover:text-white group-focus-visible:text-white"

@@ -10,8 +10,11 @@ const work = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      // Short label shown under the card title on the homepage
+      // Type of work, shown above the title on the case study page
       category: z.string(),
+      // One-line hook shown under the title on the homepage cards and the "next case study" link.
+      // Falls back to category when missing.
+      tagline: z.string().optional(),
       // One or two sentences shown at the top of the case study
       summary: z.string(),
       cover: image(),
