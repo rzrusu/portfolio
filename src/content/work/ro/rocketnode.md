@@ -13,32 +13,32 @@ website: https://rocketnode.com
 order: 1
 ---
 
-## O listă, nu un moodboard
+## Cincisprezece pagini de la zero
 
-![Cerințele au acoperit cincisprezece tipuri de pagini, de la hosting de jocuri până la parteneri și suport](../../../assets/work/rocketnode/scope.webp)
+![Cincisprezece tipuri de pagini, de la hosting de jocuri până la parteneri și suport](../../../assets/work/rocketnode/scope.webp)
 
 RocketNode oferă hosting pentru servere de jocuri. FiveM, platforma multiplayer pentru GTA V, este produsul care contează cel mai mult, urmat de Minecraft, Rust, Palworld și o listă lungă de alte jocuri, plus VPS, hosting web, boți de Discord și servere dedicate.
 
-Cerințele au venit sub forma unei liste, pagină cu pagină. Pagina principală, un catalog de jocuri, o pagină pentru fiecare joc, patru produse cloud, apoi locații, protecție DDoS, hardware, parteneri, suport, program de afiliere, despre noi și termeni legali. Cincisprezece tipuri de pagini, și nimic nu exista încă pentru niciuna dintre ele.
+Am proiectat site-ul pagină cu pagină, de la zero: pagina principală, un catalog de jocuri, o pagină pentru fiecare joc, patru produse cloud, apoi locații, protecție DDoS, hardware, parteneri, suport, program de afiliere, despre noi și termeni legali. Cincisprezece tipuri de pagini în total.
 
-Patru rânduri din lista aceea au dat direcția:
+Patru decizii au dat direcția:
 
-- Secțiunea principală trebuia să aibă personalitate. Iceline era reperul pentru nivelul de finisare, cu mențiunea explicită că a lui RocketNode trebuie să arate ca ceva propriu. Și fără carusel.
-- Planurile se prezintă pe carduri, cu toate opțiunile vizibile deodată. Fără slider.
-- Cumpărarea unui server trebuia să se simtă ca o serie scurtă de pași: nivelul de hardware, locația, perioada de facturare, extraopțiuni precum spațiu suplimentar sau suport prioritar.
-- VPS-ul primește același sistem, dar nu trebuie să pară o pagină de joc în care s-a înlocuit un cuvânt cu „VPS”.
+- O secțiune principală cu personalitate, construită în jurul produsului RocketNode. Fără carusel.
+- Planuri pe carduri, cu toate opțiunile vizibile deodată. Fără slider.
+- Cumpărarea unui server ca o serie scurtă de pași: nivelul de hardware, locația, perioada de facturare, extraopțiuni precum spațiu suplimentar sau suport prioritar.
+- VPS-ul pe același sistem, fără să pară o pagină de joc în care s-a înlocuit un cuvânt cu „VPS”.
 
 ## Șase variante pentru o singură secțiune principală
 
 ![Cum a evoluat secțiunea principală, de la o schiță la designul final axat pe FiveM](../../../assets/work/rocketnode/process-ro.webp)
 
-Secțiunea principală a trecut prin mai multe runde decât orice altă parte a site-ului, cum se întâmplă de obicei când un client cere „personalitate”.
+Secțiunea principală a trecut prin mai multe runde decât orice altă parte a site-ului.
 
 Primul wireframe avea titlul în stânga, „Fast as a Rocket”, o casetă gri în dreapta și o notă pentru mine dedesubt: personaje populare din jocuri care apar din lateral, un efect de fundal interesant. A treia variantă a fost nota aceea luată ad litteram. Un grup de lumi din jocuri plutind lângă titlu, colorat și aglomerat. Funcționa ca imagine și nu spunea nimic despre RocketNode. Orice host ar fi putut-o lansa.
 
 Așa că am renunțat la culoare. A patra variantă este un layout centrat, în nuanțe de gri, cu un singur dreptunghi gri în locul imaginii, iar constrângerea aceea s-a dovedit cea utilă. Dreptunghiul trebuia să-și merite locul, iar ce i l-a câștigat a fost produsul: panoul de control Apollo, ecranul în care clienții chiar își petrec timpul, cu jocurile pe care le rulează așezate în jurul lui. Înțelegi ce face compania doar din imagine.
 
-Două schimbări târzii au încheiat-o. Titlul a trecut de la genericul „Next-Gen Game Hosting” la „Ultra-Fast FiveM Hosting”, pentru că asta vrea RocketNode să fie găsit. Iar accentul s-a mutat din portocaliu în violetul folosit pe restul site-ului. Portocaliul aparține FiveM și, în varianta finală, supraviețuiește într-un singur loc: eticheta „Optimized for FiveM” de deasupra titlului.
+Două schimbări târzii au încheiat-o. Titlul a trecut de la genericul „Next-Gen Game Hosting” la „Ultra-Fast FiveM Hosting”, pentru că FiveM e produsul în jurul căruia e construit tot site-ul. Iar accentul s-a mutat din portocaliu în violetul folosit pe restul site-ului. Portocaliul aparține FiveM și, în varianta finală, supraviețuiește într-un singur loc: eticheta „Optimized for FiveM” de deasupra titlului.
 
 ## Un meniu pentru zeci de jocuri
 
@@ -52,7 +52,7 @@ Meniul Game Hosting este o grilă de iconițe. Cine găzduiește Rust recunoașt
 
 ![Configuratorul de servere FiveM: pașii pentru nivelul de hardware și locație, lângă sumarul comenzii](../../../assets/work/rocketnode/configurator.webp)
 
-Majoritatea hosturilor vând planuri printr-un slider de RAM. Îl tragi, vezi cum se schimbă prețul și speri că hardware-ul din spate e bun. Cerințele au cerut exact opusul, iar paginile de jocuri au primit un configurator numerotat.
+Majoritatea hosturilor vând planuri printr-un slider de RAM. Îl tragi, vezi cum se schimbă prețul și speri că hardware-ul din spate e bun. Am mers în direcția opusă: paginile de jocuri au primit un configurator numerotat.
 
 Primul pas așază fiecare nivel de hardware pe propriul card, cu specificațiile care contează la un server de joc: nuclee, memorie, stocare NVMe. Al doilea pas este o grilă de locații, fiecare cu un ping estimat de acolo de unde se află vizitatorul. Un sumar al comenzii stă în dreapta tot timpul, cu planul, eventualele opțiuni extra precum suportul prioritar și un total actualizat, iar sub butonul de lansare scrie „Instant setup, cancel anytime”. Nimic legat de preț nu așteaptă până la plată.
 
@@ -62,7 +62,7 @@ Primul pas așază fiecare nivel de hardware pe propriul card, cu specificațiil
 
 Un cumpărător de VPS ia un alt fel de decizie. Există două niveluri, Budget și Premium, iar alegerea dintre ele schimbă tot ce urmează. Dacă ai arăta toți pașii deodată, ai arăta planuri pe care clientul încă nu le poate cumpăra.
 
-Așa că configuratorul VPS se dezvăluie pas cu pas. O bară de progres în patru etape deasupra (nivel, locație, facturare, plan), o singură decizie pe ecran și o bandă de sumar jos, care se completează pe măsură ce alegi. Cardurile, pașii numerotați și starea de selecție violet sunt aceleași componente ca pe paginile de jocuri. S-a schimbat doar ritmul, și asta a ajuns să însemne, în practică, „același sistem, alt aer”.
+Așa că configuratorul VPS se dezvăluie pas cu pas. O bară de progres în patru etape deasupra (nivel, locație, facturare, plan), o singură decizie pe ecran și o bandă de sumar jos, care se completează pe măsură ce alegi. Cardurile, pașii numerotați și starea de selecție violet sunt aceleași componente ca pe paginile de jocuri. S-a schimbat doar ritmul.
 
 ## Un singur set de secțiuni
 

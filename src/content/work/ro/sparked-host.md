@@ -13,19 +13,19 @@ website: https://sparkedhost.com
 order: 2
 ---
 
-## Un redesign cu listă de verificare
+## Un redesign pagină cu pagină
 
 ![O selecție dintre tipurile de pagini din redesign, de la paginile de jocuri până la cariere](../../../assets/work/sparked-host/scope.webp)
 
-Sparked Host oferă servere pentru Minecraft și zeci de alte jocuri, alături de VPS și servere dedicate. Cerințele pentru redesign au fost neobișnuit de concrete: fiecare pagină, secțiunile de care avea nevoie și o notă despre ce ar face-o să iasă în evidență față de site-urile cu care o compară clienții.
+Sparked Host oferă servere pentru Minecraft și zeci de alte jocuri, alături de VPS și servere dedicate. Am refăcut site-ul pagină cu pagină, stabilind pentru fiecare secțiunile de care avea nevoie și ce ar face-o să iasă în evidență față de site-urile cu care o compară clienții.
 
-Câteva dintre notele acelea au dat direcția pentru tot restul:
+Câteva decizii au dat direcția pentru tot restul:
 
-- Secțiunea principală a paginii de prezentare trebuia să arate jocurile și planurile înainte ca cineva să deruleze. Un titlu și un buton nu erau de ajuns.
-- Secțiunea despre panoul de control nu avea voie să semene cu a celor de la Shockbyte. Concurentul a fost numit explicit.
-- Planurile trebuiau vândute în trei moduri: două construite în jurul pachetelor, unul în jurul unui carusel, fiecare permițând alegerea locației și a liniei de hardware odată cu planul, cu perioadele de probă gratuite menționate sus în pagină.
-- Serverele dedicate trebuiau să se simtă ca un alt produs, cu alegerea locației și filtre, nu carduri de planuri cu cifre mai mari.
-- Paginile de produs trebuiau să reacționeze la stoc. Un server indisponibil își schimbă butonul din „cumpără” în „intră pe lista de așteptare”.
+- Secțiunea principală a paginii de prezentare arată jocurile și planurile înainte ca cineva să deruleze. Un titlu și un buton nu erau de ajuns.
+- Secțiunea despre panoul de control explică panoul, în loc să arate încă o captură de ecran.
+- Planurile sunt vândute în trei moduri: două construite în jurul pachetelor, unul în jurul unui carusel, fiecare permițând alegerea locației și a liniei de hardware odată cu planul, cu perioadele de probă gratuite menționate sus în pagină.
+- Serverele dedicate se simt ca un alt produs, cu alegerea locației și filtre, nu carduri de planuri cu cifre mai mari.
+- Paginile de produs reacționează la stoc. Un server indisponibil își schimbă butonul din „cumpără” în „intră pe lista de așteptare”.
 
 ## Secțiunea principală, de șase ori
 
@@ -35,7 +35,7 @@ Prima variantă a fost cea sigură: titlu centrat, cinci bife, patru niveluri de
 
 De acolo, secțiunea s-a împărțit în două direcții. Una punea personajele din Minecraft în mijloc și împingea planurile jos, întâi cu o insignă de reducere, apoi cu un card „Best Seller” evidențiat, cu toate specificațiile lui. Cealaltă așeza celelalte jocuri Sparked pe marginea din dreapta, un raft cu Minecraft tras în față și Satisfactory și Palworld în spate.
 
-Raftul a câștigat, pentru că răspunde la prima notă din cerințe. Jocurile se văd înainte ca cineva să deruleze. Cele trei planuri populare stau direct sub titlu, cu prețurile lor, nota de pe Trustpilot stă deasupra, iar restul catalogului e la un clic distanță, în dreapta.
+Raftul a câștigat, pentru că face singurul lucru pe care secțiunea principală trebuia să-l facă. Jocurile se văd înainte ca cineva să deruleze. Cele trei planuri populare stau direct sub titlu, cu prețurile lor, nota de pe Trustpilot stă deasupra, iar restul catalogului e la un clic distanță, în dreapta.
 
 ## Patru pași, două viteze
 
@@ -57,7 +57,7 @@ A treia variantă e pentru cei care preferă să compare prețuri decât să ră
 
 ![Secțiunea despre panou, cu instrumentele panoului Apollo lângă o ilustrație a panoului](../../../assets/work/sparked-host/panel.webp)
 
-Fiecare host are o secțiune despre panoul lui de control, și aproape toate sunt o captură de ecran cu un paragraf. Cerințele au exclus copierea unui anumit concurent, și oricum nu voiam încă o captură.
+Fiecare host are o secțiune despre panoul lui de control, și aproape toate sunt o captură de ecran cu un paragraf. Am vrut ca aceasta să explice panoul, nu doar să-l arate.
 
 Secțiunea asta e o listă și un desen. Lista coboară pe stânga: consolă, manager de fișiere, instalator de modpack-uri, instalator de pluginuri, reverse proxy, import de server, împărțire de server. Desenul din dreapta e un panou Apollo simplificat, iar instrumentul evidențiat în listă e cel desenat în dreapta. Spune ce face panoul cu șapte etichete în loc de un zid de funcții.
 

@@ -13,32 +13,32 @@ website: https://rocketnode.com
 order: 1
 ---
 
-## A list, not a mood board
+## Fifteen pages from a blank canvas
 
-![The brief covered fifteen page types, from game hosting to partners and support](../../../assets/work/rocketnode/scope.webp)
+![Fifteen page types, from game hosting to partners and support](../../../assets/work/rocketnode/scope.webp)
 
 RocketNode runs game servers. FiveM, the multiplayer platform for GTA V, is the product that matters most, with Minecraft, Rust, Palworld and a long tail of other games behind it, plus VPS, web hosting, Discord bots and dedicated servers.
 
-The brief arrived as a page-by-page list. Homepage, game browser, a page for every game, four cloud products, then locations, DDoS protection, hardware, partners, support, affiliates, about and legal. Fifteen page types, and nothing existed yet for any of them.
+I designed the site page by page from nothing: homepage, game browser, a page for every game, four cloud products, then locations, DDoS protection, hardware, partners, support, affiliates, about and legal. Fifteen page types in all.
 
-Four lines in that list did most of the steering:
+Four decisions did most of the steering:
 
-- The hero should have character. Iceline was the reference for the level of polish, with the explicit note that RocketNode's should look like its own thing. And no carousel.
-- Plans go in cards, every option visible at once. No slider.
-- Buying a server should feel like a short set of steps: hardware tier, location, billing cycle, extras such as storage or priority support.
-- VPS gets the same system, but it should not feel like a game page with the word "VPS" swapped in.
+- A hero with real character, built around RocketNode's own product. No carousel.
+- Plans in cards, every option visible at once. No slider.
+- Buying a server as a short set of steps: hardware tier, location, billing cycle, extras such as storage or priority support.
+- VPS on the same system, without feeling like a game page with the word "VPS" swapped in.
 
 ## Six versions of one hero
 
 ![How the hero evolved, from a sketch to the final FiveM-focused design](../../../assets/work/rocketnode/process.webp)
 
-The hero took more rounds than any other part of the site, which is how it usually goes when a client asks for "character".
+The hero took more rounds than any other part of the site.
 
 The first wireframe was a headline on the left, "Fast as a Rocket", with a grey box on the right and a note to myself underneath: popular game characters peeking out, some cool background effect. Version three was that note taken literally. A cluster of game worlds floating beside the headline, bright and busy. It worked as an image and said nothing about RocketNode. Any host could have shipped it.
 
 So I threw the colour away. Version four is a grayscale, centred layout with one grey rectangle where the picture would go, and that constraint turned out to be the useful one. The rectangle had to earn its place, and the thing that earned it was the product: the Apollo game panel, the screen customers will actually live in, with the games it runs arranged around it. You can read what the company does from the picture alone.
 
-Two late changes finished it. The headline moved from a generic "Next-Gen Game Hosting" to "Ultra-Fast FiveM Hosting", because that is what RocketNode wants to be found for. And the accent moved from orange to the purple used across the rest of the site. The orange belongs to FiveM, and in the final version it survives in exactly one place: the "Optimized for FiveM" badge above the headline.
+Two late changes finished it. The headline moved from a generic "Next-Gen Game Hosting" to "Ultra-Fast FiveM Hosting", because FiveM is the product the whole site is built around. And the accent moved from orange to the purple used across the rest of the site. The orange belongs to FiveM, and in the final version it survives in exactly one place: the "Optimized for FiveM" badge above the headline.
 
 ## A menu for dozens of games
 
@@ -52,7 +52,7 @@ The Game Hosting menu is an icon grid. People who host Rust know the Rust icon, 
 
 ![The FiveM server configurator: hardware tier and location steps next to the order summary](../../../assets/work/rocketnode/configurator.webp)
 
-Most hosts sell plans with a RAM slider. Drag it, watch a price change, hope the hardware behind it is good. The brief asked for the opposite, and the game pages got a numbered configurator instead.
+Most hosts sell plans with a RAM slider. Drag it, watch a price change, hope the hardware behind it is good. I went the other way: the game pages got a numbered configurator instead.
 
 Step one lays out every hardware tier as its own card with the specs that matter for a game server: cores, memory, NVMe storage. Step two is a grid of locations, each with an estimated ping from where the visitor is sitting. An order summary sits to the right the whole time, listing the plan, any add-ons like priority support, and a running total, with "Instant setup, cancel anytime" under the deploy button. Nothing about the price waits until checkout.
 
@@ -62,7 +62,7 @@ Step one lays out every hardware tier as its own card with the specs that matter
 
 A VPS buyer makes a different kind of decision. There are two tiers, Budget and Premium, and the choice between them changes everything that follows. Showing every step at once would mean showing plans the customer can't buy yet.
 
-So the VPS configurator reveals itself step by step. A four-stage progress bar across the top (tier, location, billing, plan), one decision per screen, and a summary strip along the bottom that fills in as choices are made. The cards, the numbered steps and the purple selection state are the same components as the game pages. Only the pacing changed, which is what "same system, different feel" came to mean in practice.
+So the VPS configurator reveals itself step by step. A four-stage progress bar across the top (tier, location, billing, plan), one decision per screen, and a summary strip along the bottom that fills in as choices are made. The cards, the numbered steps and the purple selection state are the same components as the game pages. Only the pacing changed.
 
 ## One kit of sections
 

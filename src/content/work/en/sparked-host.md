@@ -13,19 +13,19 @@ website: https://sparkedhost.com
 order: 2
 ---
 
-## A redesign with a checklist
+## A page-by-page redesign
 
 ![A selection of the page types in the redesign, from game pages to careers](../../../assets/work/sparked-host/scope.webp)
 
-Sparked Host runs servers for Minecraft and dozens of other games, with VPS and dedicated servers alongside. The brief for the redesign was unusually concrete: every page, the sections it needed, and a note on what would make each one stand out from the sites customers compare it against.
+Sparked Host runs servers for Minecraft and dozens of other games, with VPS and dedicated servers alongside. I redesigned the site page by page, working out for each one the sections it needed and what would make it stand out from the sites customers compare it against.
 
-A few of those notes set the direction for everything else:
+A few decisions set the direction for everything else:
 
-- The landing page hero had to show games and plans before anyone scrolls. A headline and a button were not enough.
-- The control panel section could not look like Shockbyte's. That competitor was named.
-- Plans needed to be sold three ways: two built around packages, one around a carousel, each letting the customer pick a location and a hardware line along with the plan, with free trials mentioned near the top.
-- Dedicated servers should feel like a different product, with location picking and filters, not plan cards with bigger numbers.
-- Product pages had to react to stock. An out-of-stock server switches its button from "buy" to "join the waitlist".
+- The landing page hero shows games and plans before anyone scrolls. A headline and a button were not enough.
+- The control panel section explains the panel instead of showing yet another screenshot of it.
+- Plans are sold three ways: two built around packages, one around a carousel, each letting the customer pick a location and a hardware line along with the plan, with free trials mentioned near the top.
+- Dedicated servers feel like a different product, with location picking and filters, not plan cards with bigger numbers.
+- Product pages react to stock. An out-of-stock server switches its button from "buy" to "join the waitlist".
 
 ## The hero, six times
 
@@ -35,7 +35,7 @@ The first version was the safe one: centred headline, five check marks, four pla
 
 From there the hero split into two directions. One put Minecraft's characters in the middle and pushed the plans down, first with a discount badge, then with a highlighted "Best Seller" card carrying all of its specs. The other stacked Sparked's other games down the right edge, a shelf with Minecraft pulled forward and Satisfactory and Palworld behind it.
 
-The shelf won, because it answers the brief's first note. The games are visible before anyone scrolls. The three popular plans sit directly under the headline with their prices, the Trustpilot score sits above it, and the rest of the catalogue is one click to the right.
+The shelf won, because it does the one thing the hero had to do. The games are visible before anyone scrolls. The three popular plans sit directly under the headline with their prices, the Trustpilot score sits above it, and the rest of the catalogue is one click to the right.
 
 ## Four steps, two speeds
 
@@ -57,7 +57,7 @@ The third version is for people who would rather compare prices than answer ques
 
 ![The panel section, listing the Apollo panel's tools next to an illustration of the panel](../../../assets/work/sparked-host/panel.webp)
 
-Every host has a section about its control panel, and nearly all of them are a screenshot with a paragraph. The brief ruled out copying one competitor's, and I didn't want another screenshot anyway.
+Every host has a section about its control panel, and nearly all of them are a screenshot with a paragraph. I wanted this one to explain the panel, not just show it.
 
 This section is a list and a drawing. The list runs down the left: console, file manager, modpack installer, plugin installer, reverse proxy, server importer, server splitter. The drawing on the right is a simplified Apollo panel, and the highlighted tool in the list is the one drawn on the right. It says what the panel does with seven labels instead of a wall of features.
 

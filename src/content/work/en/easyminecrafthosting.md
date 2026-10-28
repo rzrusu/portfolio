@@ -26,7 +26,7 @@ gallery:
     caption: Closing call to action with Minecraft characters on both sides, and the footer
 ---
 
-EasyMinecraftHosting is a Minecraft host with a Spanish-speaking audience as well as an English one. That shaped the site more than anything else in the brief: the language toggle lives in the top bar on every page, and "Full Spanish Support" sits in the features grid next to DDoS protection and backups, because for a lot of its customers it is the feature.
+EasyMinecraftHosting is a Minecraft host with a Spanish-speaking audience as well as an English one. That shaped the design more than anything else: the language toggle lives in the top bar on every page, and "Full Spanish Support" sits in the features grid next to DDoS protection and backups, because for a lot of its customers it is the feature.
 
 The plans section avoids the usual wall of cards. The three hardware lines, Standard, Premium and Extreme, are tabs. Each tab describes who the line is for (a vanilla server with five to ten players, say), lists its hardware, states the price rule of so much per gigabyte of RAM, and shows one recommended plan. Anyone who wants the full range clicks through to all plans. Everyone else gets a decision they can make in one screen.
 

@@ -26,7 +26,7 @@ gallery:
     caption: Îndemnul final la acțiune, cu personaje din Minecraft pe ambele părți, și subsolul
 ---
 
-EasyMinecraftHosting este un host de Minecraft cu un public vorbitor de spaniolă pe lângă cel vorbitor de engleză. Asta a modelat site-ul mai mult decât orice altceva din cerințe: comutatorul de limbă stă în bara de sus pe fiecare pagină, iar „Full Spanish Support” apare în grila de avantaje lângă protecția DDoS și backup-uri, pentru că, pentru mulți dintre clienți, chiar asta e avantajul.
+EasyMinecraftHosting este un host de Minecraft cu un public vorbitor de spaniolă pe lângă cel vorbitor de engleză. Asta a modelat designul mai mult decât orice altceva: comutatorul de limbă stă în bara de sus pe fiecare pagină, iar „Full Spanish Support” apare în grila de avantaje lângă protecția DDoS și backup-uri, pentru că, pentru mulți dintre clienți, chiar asta e avantajul.
 
 Secțiunea de planuri evită obișnuitul zid de carduri. Cele trei linii de hardware, Standard, Premium și Extreme, sunt taburi. Fiecare tab descrie cui i se adresează linia (un server vanilla cu cinci până la zece jucători, de exemplu), îi listează hardware-ul, spune regula de preț per gigabyte de RAM și arată un singur plan recomandat. Cine vrea gama completă dă clic mai departe către toate planurile. Toți ceilalți primesc o decizie pe care o pot lua într-un singur ecran.
 
